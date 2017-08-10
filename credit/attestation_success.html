@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title></title>
+<head>
+    <title>认证成功</title>
     <!-- <base href="/test/"/> -->
 <base href="/bulid/"/>
 
@@ -31,11 +31,24 @@
 	window._sitePath = "/bulid/"; // 测试
 </script>
 
-    </head>
-    <body style="background: #eee">
-
-
-    </body>
+</head>
+<body style="background: #eee">
+    
+    <header><!-- <a href="javascript:history.back(-1)" class="return_a">返回</a> -->提交</header>
+<div class="success-box">
+    <i class="icon-success">
+    </i>
+    <p class="p1">
+        认证信息已成功提交 
+    </p>
+    <p class="p2">
+        1-3个工作日内给出审核结果 
+    </p>
+</div>
+<a href="credit/user-info.html?v_1502330040616" class="btn-view btn">确认</a>
+<!-- <a href="loan/loan" class="btn-again btn">再次提现</a> -->
+<!--<p class="bot-help">对以上交易有疑问，<a href="">查看帮助中心</a></p>-->
+</body>
 
 <!-- <scr ipt src='js/lib/zepto/zepto.min.js'></script> -->
 <!-- <sc ript src='js/lib/zepto.cookie/zepto.cookie.min.js'></script> -->
@@ -45,16 +58,6 @@
 <script src='js/lib/vue/vue-resource.min.js'></script>
 <script src='js/common/dictionary.js'></script>
 <script src='js/common/common.js'></script>
-<script src='js/common/main.js?v_1502330040616'></script> 
-
-<script>
-window.onload= function(){
-  var x = document.createElement("SCRIPT");
-  x.src ='./js/index.js?v_'+ (new Date()).getTime()
-  document.body.appendChild(x);
-}
-
-
-</script>
+<script src='js/common/main.js?v_1502330040616'></script>
 </html>
 

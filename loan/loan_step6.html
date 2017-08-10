@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>合同签署结果</title>
+    <!-- <base href="/test/"/> -->
+<base href="/bulid/"/>
+
+<meta charset="UTF-8"/>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<!-- 尺寸的设置以及页面是否允许缩放 -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+<!-- 删除苹果默认的工具栏和菜单栏 -->
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<!-- 忽略页面中的数字识别为电话,忽略email识别 -->
+<meta name="format-detection" content="telephone=no, email=no"/>
+<!-- 启用360浏览器的极速模式(webkit) -->
+<meta name="renderer" content="webkit"/>
+<!-- 解决http https混合加载的安全性问题 -->
+<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content"/>
+
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" href="css/base.css"/>
+<link rel="stylesheet" href="css/style.css?v_1502330040616"/>
+<script>
+	// 项目根路径
+	// window._appPath = "http://210.14.129.41:8080/";
+	window._appPath = "/msxfInterface/";
+	// window._sitePath = "/test/"; // 测试
+	window._sitePath = "/bulid/"; // 测试
+</script>
+
+</head>
+
+<body style="background: #eee">
+    <header>
+        <!-- <a href="javascript:history.back(-1)" class="return_a">返回</a> -->合同签署结果</header>
+    <div class="main" v-cloak>
+        <div class="success-box">
+            <i class="icon-success"></i>
+            <p class="p1">
+                {{ p1 }}
+            </p>
+            <p class="p2">
+                <span class="color-red">{{ p2 }}</span>
+            </p>
+            <p class="p5" v-if="p5!=''">
+                <span class="color-red" v-html="p5"></span>
+            </p>
+        </div> 
+        <button class="btn-next btn hide" v-on:click="submitFn">去设置密码</button>
+        <button class="btn-resig btn hide" v-on:click="resigFn">重新注册</button>
+    </div>
+</body>
+
+<!-- <scr ipt src='js/lib/zepto/zepto.min.js'></script> -->
+<!-- <sc ript src='js/lib/zepto.cookie/zepto.cookie.min.js'></script> -->
+<script src='js/lib/jquery/3.1.1/jquery.min.js'></script>
+<script src='js/lib/jquery.cookie/jquery.cookie.js'></script>
+<script src='js/lib/vue/vue.min.js'></script>
+<script src='js/lib/vue/vue-resource.min.js'></script>
+<script src='js/common/dictionary.js'></script>
+<script src='js/common/common.js'></script>
+<script src='js/common/main.js?v_1502330040616'></script>
+    <script>
+    $(function() {
+
+        // 
+        new Vue({
+            el: '.main',
+            data: {
+                p1:'合同签署中',
+                p2:'合同签署中请等待...',
+                p5:'',
+            },
+            methods: {
+                submitFn: function() {
+                    if($('#contractCheckbox').prop('checked')){
+                        CommonUtil.redirectUrl('loan/loan_password.html');
+                    }else{
+                        $.alert('请阅读并同意协议！')
+                    }
+                    // CommonUtil.redirectUrl('loan/loan_password.html');
+                },
+                resigFn: function() {
+                    CommonUtil.redirectUrl('loan/loan_step1.html');
+                },
+                resetFn: function(){
+                    var data = {
+                        openId: $.cookie('openId')
+                    }
+                    var _this = this
+                    this.$http.post(window._appPath +'accountInfo.do',{
+                        openId: $.cookie('openId')
+                    },{
+                        emulateJSON:true
+                    }).then(function(res){
+                        console.log(res.data,111)
+                        var data = res.data;
+                        if(data.code == 0){
+                            if(data.data.isValid){
+                                // totalAmount
+                                _this.p1 = '恭喜您合同签署成功！' 
+                                _this.p2 =  (data.data.totalAmount).toFixed(2)+'元'
+                                _this.p5 = '<input type="checkbox" name="" id="contractCheckbox" checked><label for="">我已经阅读并同意《<a class="color-blue" href="./loan/loan_step5.html?v_1502330040616">个人循环信用额度贷款合同</a>》</label>'
+                                // $('.btn-reset').addClass('hide')
+                                $('.btn-next').removeClass('hide')
+                            }else{
+                                $('.icon-success').removeClass('icon-success').addClass('icon-applying')
+                                _this.p1 = '账户无效'
+                                _this.p2 = ''
+                                $('.btn-resig').removeClass('hide')
+                            }
+                        }else{
+                            $.alert(data.message)
+                        }
+                    },function(){})
+          
+                }
+
+            },
+            created: function() {
+                this.resetFn()
+            }
+
+        });
+    })
+    </script>
+
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>支付</title>
+  <!-- <base href="/test/"/> -->
+<base href="/bulid/"/>
+
+<meta charset="UTF-8"/>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<!-- 尺寸的设置以及页面是否允许缩放 -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+<!-- 删除苹果默认的工具栏和菜单栏 -->
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<!-- 忽略页面中的数字识别为电话,忽略email识别 -->
+<meta name="format-detection" content="telephone=no, email=no"/>
+<!-- 启用360浏览器的极速模式(webkit) -->
+<meta name="renderer" content="webkit"/>
+<!-- 解决http https混合加载的安全性问题 -->
+<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content"/>
+
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" href="css/base.css"/>
+<link rel="stylesheet" href="css/style.css?v_1502330040616"/>
+<script>
+	// 项目根路径
+	// window._appPath = "http://210.14.129.41:8080/";
+	window._appPath = "/msxfInterface/";
+	// window._sitePath = "/test/"; // 测试
+	window._sitePath = "/bulid/"; // 测试
+</script>
+
+</head>
+
+<body class="pay" style="background: #eee">
+  <header>
+    <a href="javascript:history.back(-1)" class="return_a"></a>支付</header>
+   
+  <div class="box-6-1  ">
+    <p class="">
+      <img id="barcode1"/>
+    </p>
+    <div id="code"> </div>
+    
+  </div>
+
+  <div class="box-logo  pay-box-logo">
+    <div class="hd">
+      <span class=""><img src="./img/jh/logo3.png" alt=""></span>
+      <span class=""><img src="./img/jh/logo2.png" alt=""></span>
+      <span class=""><img src="./img/jh/logo1.png" alt=""></span>
+    </div>
+    <div class="bd text-center">
+      本服务由佳惠集团、马上消费金融、信柏科技联合提供
+    </div>
+  </div>
+
+</body>
+
+<!-- <scr ipt src='js/lib/zepto/zepto.min.js'></script> -->
+<!-- <sc ript src='js/lib/zepto.cookie/zepto.cookie.min.js'></script> -->
+<script src='js/lib/jquery/3.1.1/jquery.min.js'></script>
+<script src='js/lib/jquery.cookie/jquery.cookie.js'></script>
+<script src='js/lib/vue/vue.min.js'></script>
+<script src='js/lib/vue/vue-resource.min.js'></script>
+<script src='js/common/dictionary.js'></script>
+<script src='js/common/common.js'></script>
+<script src='js/common/main.js?v_1502330040616'></script>
+  <!-- <sc ript src="js/lib/jquery/2.1.4/jquery.min.js"></script> -->
+  <script src="js/lib/jquery-validate/jquery-validate.js"></script>
+  <script src="js/lib/jquery.qrcode/jquery.qrcode.min.js"></script>
+  <script src="js/lib/JsBarcode/JsBarcode.all.min.js"></script>
+  <script src="js/pay/password.js"></script>
+
+    <script>
+    jQuery(function($){
+      function reFn(){
+        var h = $(window).height()
+        // console.log(h)
+        if(h<573){
+          $('.pay-box-logo').css('top','500px')
+        }else{
+          $('.pay-box-logo').css('top','auto')
+        }
+      }
+      reFn()
+      $(window).resize(function(){
+        reFn()
+      });
+       // 二维码
+          $("#code").qrcode({
+              render: "table", //table方式 
+              width: 200, //宽度 
+              height: 200, //高度 
+              text: "123520170323115707"  //任意内容 
+          });
+      // 条形码
+      JsBarcode("#barcode1", "123520170323115707",{
+        displayValue: false
+      });
+      // getPayStatus
+      function getPayStatusFn(){
+
+        $.getJSON(window._appPath +'getPayStatus.do', {openId: $.cookie('openId')}, function(data, textStatus) {
+
+            // var json = data
+            console.log(data)
+                if(data.code == 0 ){
+                    // location.href = 'loan/loan_password_success.html?v_'+ (new Date().getTime())
+                    if (data.data.status==0) {
+                      //
+                      CommonUtil.redirectUrl('pay/pay_success.html?m=100&v_'+ (new Date().getTime()));
+                    }else if(data.data.status==1){
+
+                      CommonUtil.redirectUrl('pay/pay_fail.html?&v_'+ (new Date().getTime()));
+                    }else if(data.data.status==2){
+                      return
+                    }
+                    // CommonUtil.redirectUrl('loan/index.html?v_'+ (new Date().getTime()));
+                }
+        });
+        // $.ajax({
+        //         url: window._appPath +'getPayStatus.do',
+        //         type: 'post',
+        //         dataType: 'json',
+        //         data: {
+        //             openId: $.cookie('openId'),
+        //             // transPassword: p1
+        //         },
+        //     })
+        //     .done(function(data) {
+        //         // var json = JSON.parse(data)
+        //         // {"code":"0","message":"成功","data":{"status":2}}
+        //         // 0：成功1：失败 2：等待中
+        //         var json = data
+
+        //         if(data.code == 0 ){
+        //             // location.href = 'loan/loan_password_success.html?v_'+ (new Date().getTime())
+        //             if (data.data.status==0) {
+        //               //
+        //             }else if(data.data.status==1){
+
+        //             }else if(data.data.status==2){
+
+        //             }
+        //             // CommonUtil.redirectUrl('loan/index.html?v_'+ (new Date().getTime()));
+        //         }
+
+                 
+        //     })
+        //     .fail(function() {
+        //         console.log("error");
+        //     })
+        //     .always(function() {
+        //         console.log("complete");
+        //     });
+      }
+      setInterval(function(){
+        getPayStatusFn()
+      },10000)
+      
+
+    })
+    </script>
+</html>

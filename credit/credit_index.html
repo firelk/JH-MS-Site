@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title></title>
-    <!-- <base href="/test/"/> -->
+
+<head>
+  <title>信用</title>
+  <!-- <base href="/test/"/> -->
 <base href="/bulid/"/>
 
 <meta charset="UTF-8"/>
@@ -31,11 +32,28 @@
 	window._sitePath = "/bulid/"; // 测试
 </script>
 
-    </head>
-    <body style="background: #eee">
+    <link rel="stylesheet" href="css/scale_slip.css" />
+</head>
+
+<body class="user-info" style="background: #e4e4e4;">
+  <header>
+    <!-- <a href="javascript:history.back(-1)" class="return_a">返回</a> -->信用</header>
+  
+    <div class="fail-box">
+    <i class="icon-fail"></i>
+    <p class="p1">
+      开发中...
+    </p>
+    <p class="p2">
+   <!-- 亲，您的借款审核结果，请稍后再试 -->
+    </p>
+   <!-- <div class="p3">< %=msg</div> -->
+  </div>
+  <a href="loan/index.html?v_1502330040616" class="btn-view btn">返回</a>
+  
 
 
-    </body>
+</body>
 
 <!-- <scr ipt src='js/lib/zepto/zepto.min.js'></script> -->
 <!-- <sc ript src='js/lib/zepto.cookie/zepto.cookie.min.js'></script> -->
@@ -45,16 +63,6 @@
 <script src='js/lib/vue/vue-resource.min.js'></script>
 <script src='js/common/dictionary.js'></script>
 <script src='js/common/common.js'></script>
-<script src='js/common/main.js?v_1502330040616'></script> 
+<script src='js/common/main.js?v_1502330040616'></script>
 
-<script>
-window.onload= function(){
-  var x = document.createElement("SCRIPT");
-  x.src ='./js/index.js?v_'+ (new Date()).getTime()
-  document.body.appendChild(x);
-}
-
-
-</script>
 </html>
-

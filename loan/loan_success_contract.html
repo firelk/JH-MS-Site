@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title></title>
-    <!-- <base href="/test/"/> -->
+<head>
+	<title>贷款合同</title>
+	<!-- <base href="/test/"/> -->
 <base href="/bulid/"/>
 
 <meta charset="UTF-8"/>
@@ -31,12 +31,33 @@
 	window._sitePath = "/bulid/"; // 测试
 </script>
 
-    </head>
-    <body style="background: #eee">
-
-
-    </body>
-
+</head>
+<body style="background: #eee;">
+<header><a href="javascript:history.back(-1)" class="return_a">返回</a>贷款合同</header>
+<form action="" method="post" class="user-info-form" id="user-info-form">
+	<!-- 第三步 begin -->
+	<div class="three-step region-box">
+		<!-- <ul class="steps"> 
+            <li class="step"><i class="step-icon">1</i><label>基本信息</label></li>
+			<li class="step steping"><i class="step-icon">2</i><label>完善信息</label></li>
+			<li class="step"><i class="step-icon">3</i><label>审批成功</label></li>
+        </ul> -->
+        <!-- <div class="text-center step-info">信息完整度会影响信用额度哦</div> -->
+		 
+ 
+		<div class="read-agreement-box">
+			<div class="h3">贷款合同</div>
+			<div class="bd">
+				<iframe id="iframeContract" src="" height="500" width="100%" frameborder="0"></iframe>
+			</div>
+		</div>
+		<button  class="btn-view btn">签约</button>
+		
+	</div>
+	<!-- 第三步 end -->
+</form>
+</body>
+	
 <!-- <scr ipt src='js/lib/zepto/zepto.min.js'></script> -->
 <!-- <sc ript src='js/lib/zepto.cookie/zepto.cookie.min.js'></script> -->
 <script src='js/lib/jquery/3.1.1/jquery.min.js'></script>
@@ -45,16 +66,7 @@
 <script src='js/lib/vue/vue-resource.min.js'></script>
 <script src='js/common/dictionary.js'></script>
 <script src='js/common/common.js'></script>
-<script src='js/common/main.js?v_1502330040616'></script> 
-
-<script>
-window.onload= function(){
-  var x = document.createElement("SCRIPT");
-  x.src ='./js/index.js?v_'+ (new Date()).getTime()
-  document.body.appendChild(x);
-}
-
-
-</script>
+<script src='js/common/main.js?v_1502330040616'></script>
+<!-- <scr ipt src="data/city.data.js"></script> -->
+<script src="js/loan/loan_success_contract.js"></script>
 </html>
-

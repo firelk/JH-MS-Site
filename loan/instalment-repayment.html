@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title></title>
+<head>
+  <title>待还账单</title>
     <!-- <base href="/test/"/> -->
 <base href="/bulid/"/>
 
@@ -31,11 +31,46 @@
 	window._sitePath = "/bulid/"; // 测试
 </script>
 
-    </head>
-    <body style="background: #eee">
+  <link rel="stylesheet" href="css/scale_slip.css"/>
+</head>
+<body class="fill-detail" style="background: #e4e4e4;">
 
-
-    </body>
+<div class="top-loan">
+  <div class="top-header">
+    <a href="javascript:history.back(-1)" class="return_a"> </a>
+    账单
+    <!-- <a href="javascript:;" class="top-zhifu">
+      支付
+    </a> -->
+  </div>
+</div>
+<div class="main" v-cloak>
+  <div class="box-3">
+    <div class="hd"><div class="">{{ date }}</div><div class="">订单号: <span class="color-blue">{{ refNo }}</span></div></div>
+    <div class="hd">账单金额: <span class="color-red">¥ {{ (+amt).toFixed(2) }}</span></div>
+  </div>
+  <div class="box-2-1">
+    <ul class="">
+      <li class="active ">
+        <div class="bd">
+          <div class="item" v-for="item in list" v-on:click="itemFn(item.term, item.fee, item.rate, item.amt, amt, date)">
+            <div class="hd-line">
+              <div class="l"><i class=""></i>分期方式</div>
+              <div class="r">{{ item.term }}期</div>
+            </div>
+            <div class="bd-line">
+              <div class="l"><i class=""></i>每月还款</div>
+              <div class="r"><span class="color-red">{{ (+item.amt).toFixed(2) }}</span></div>
+            </div>
+          </div>  
+          
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+ 
+</body>
 
 <!-- <scr ipt src='js/lib/zepto/zepto.min.js'></script> -->
 <!-- <sc ript src='js/lib/zepto.cookie/zepto.cookie.min.js'></script> -->
@@ -45,16 +80,11 @@
 <script src='js/lib/vue/vue-resource.min.js'></script>
 <script src='js/common/dictionary.js'></script>
 <script src='js/common/common.js'></script>
-<script src='js/common/main.js?v_1502330040616'></script> 
-
+<script src='js/common/main.js?v_1502330040616'></script>
 <script>
-window.onload= function(){
-  var x = document.createElement("SCRIPT");
-  x.src ='./js/index.js?v_'+ (new Date()).getTime()
-  document.body.appendChild(x);
-}
-
-
+  // 获得结果信息 
 </script>
-</html>
+<script src="js/loan/instalment-repayment.js?v_1502330040616"></script>
 
+
+</html>

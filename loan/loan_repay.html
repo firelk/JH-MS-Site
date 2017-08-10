@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>还款</title>
+	<!-- <base href="/test/"/> -->
+<base href="/bulid/"/>
+
+<meta charset="UTF-8"/>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<!-- 尺寸的设置以及页面是否允许缩放 -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+<!-- 删除苹果默认的工具栏和菜单栏 -->
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<!-- 忽略页面中的数字识别为电话,忽略email识别 -->
+<meta name="format-detection" content="telephone=no, email=no"/>
+<!-- 启用360浏览器的极速模式(webkit) -->
+<meta name="renderer" content="webkit"/>
+<!-- 解决http https混合加载的安全性问题 -->
+<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content"/>
+
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" href="css/base.css"/>
+<link rel="stylesheet" href="css/style.css?v_1502330040616"/>
+<script>
+	// 项目根路径
+	// window._appPath = "http://210.14.129.41:8080/";
+	window._appPath = "/msxfInterface/";
+	// window._sitePath = "/test/"; // 测试
+	window._sitePath = "/bulid/"; // 测试
+</script>
+
+
+</head>
+<body style="background: #e4e4e4;">
+<header>
+	<!-- <a href="javascript:history.back(-1)" class="return_a">返回</a>还款 -->
+<div class="top-header">
+		<a href="javascript:history.back(-1)" class="return_a"> </a>
+		还款
+		<!-- <a href="javascript:;" class="top-zhifu">
+			支付
+		</a> -->
+	</div>
+</header>
+<form action="" method="post" class="user-info-form" id="user-info-form">
+	<!-- 第一步 begin -->
+	<div class="first-step main " v-cloak>
+
+		<div class="validator region-box">
+			<div class="form-row">
+				<div class="form-label">
+					还款金额
+				</div>
+				<div class="form-controls">
+					<input type="number" name="repay_number" v-bind:value="billAmt" class="text repay_number" placeholder="请输入还款金额"  data-rule="required mobile" data-rule-msg="请输入还款金额"/>
+				</div>
+			</div>
+		</div>
+		<div class="form-row yzm-row">
+			<div class="form-label">
+				验证码
+			</div>
+			<div class="form-controls">
+				<input type="text" name="bankcard_captcha" class="text form-yzm" maxlength="6" placeholder="短信验证码" value="" data-rule="required smsCode" data-rule-msg="请输入短信验证码"/>
+				<input type="button" class="sms-code" id="sms-code" v-on:click="yzmFn"  value="获取验证码"/>
+			</div>
+		</div>
+		<!-- <p class="yzm-fail">
+			<a href="javascript:;">收不到验证码?</a>
+		</p> -->
+		<!-- <p class="text_version">* 马上消费金融持有银监会消费金融牌照，在您申请过程中会依法查询您的央行征信记录。</p> -->
+		<button class="btn-next btn" type="button" disabled="disabled" v-on:click="clickFn" id="next">
+			提交		</button>
+	</div>
+	<!-- 第一步 end -->
+</form>
+
+</body>
+<script>
+	// hrel='< %=hrel';
+</script>
+
+<!-- <scr ipt src='js/lib/zepto/zepto.min.js'></script> -->
+<!-- <sc ript src='js/lib/zepto.cookie/zepto.cookie.min.js'></script> -->
+<script src='js/lib/jquery/3.1.1/jquery.min.js'></script>
+<script src='js/lib/jquery.cookie/jquery.cookie.js'></script>
+<script src='js/lib/vue/vue.min.js'></script>
+<script src='js/lib/vue/vue-resource.min.js'></script>
+<script src='js/common/dictionary.js'></script>
+<script src='js/common/common.js'></script>
+<script src='js/common/main.js?v_1502330040616'></script>
+<!-- <scr ipt src="js/loan/step1.js?11"></script>  -->
+<script>
+	jQuery(function($){
+		new Vue({
+			el:'.main',
+			data:{
+				billAmt:''
+			},
+			methods:{
+				yzmFn:function(){
+
+					this.$http.post(window._appPath +'repay/sms.do', {
+		                openId: $.cookie('openId'),
+		                amount: $('.repay_number').val()
+		            },{
+		                emulateJSON:true
+		            }).then(function(res){
+		                console.log(res.data,111)
+		                var data = res.data 
+		                if(data.code==0){ 
+
+		                    $.alert('短信已发送！')
+		                    $('.btn').removeAttr('disabled')
+		                }else{
+		                	$.alert(data.message)
+		                }
+		            },function(){})
+				},
+				clickFn:function(t){
+					// console.log(t)
+					$('#next').attr('disabled','disabled')
+
+					setTimeout(function(){
+						$('#next').removeAttr('disabled')
+					},10000)
+					this.$http.post(window._appPath +'repay.do', {
+		                openId: $.cookie('openId'),
+		                amount: $('.repay_number').val(),
+		                smsCode: $('.form-yzm').val()
+		            },{
+		                emulateJSON:true
+		            }).then(function(res){
+		                console.log(res, 111)
+		                var data = res.data 
+
+		                if(data.code==0){
+		                	if (data.data.status ==0 ) {
+		                		CommonUtil.redirectUrl('loan/loan_repay_waitfor.html');
+		                	}
+		                	if (data.data.status ==1 ) {
+		                		CommonUtil.redirectUrl('loan/loan_repay_success.html');
+		                	}
+		                	if (data.data.status ==2 ) {
+		                		CommonUtil.redirectUrl('loan/loan_repay_fail.html');
+		                	}
+                    		
+		                }else{
+		                	$.alert(data.message)
+		                }
+		            },function(){})
+				},
+				getNumFn:function(){// 获取待还金额
+					this.$http.post(window._appPath +'getbills.do',{
+		                openId:$.cookie('openId')
+		            },{
+		                emulateJSON:true
+		            }).then(function(res){
+		                console.log(res.data,111)
+		                var data = res.data
+		                // console.log(data.data.bill)
+		                if(data.code==0){
+		                    // 本期还款
+		                    // this.billAmt = data.data.billhis.billAmt
+		                    // console.log(Number(data.data.billhis.billAmt) , Number(data.data.bill.paidAmt))
+		                    this.billAmt = data.data.billhis.billAmt !='' ? (Number(data.data.billhis.billAmt) - Number(data.data.bill.paidAmt)).toFixed(2) : 0;
+		                    // this.billhis = data.data.billhis.stmtDetails;
+		                    // // 全部待还
+		                    // this.shdRepayAmt = data.data.bill.shdRepayAmt !='' ? data.data.bill.shdRepayAmt : 0;
+		                    // this.paidAmt = data.data.bill.paidAmt;
+		                    // this.bill = data.data.bill.stmtDetails;
+		                }
+		            },function(){})
+				},
+
+
+			},
+			created:function(){
+				// 获取待还金额
+				this.getNumFn();
+
+				// 
+
+			}
+		})
+	})
+</script>
+</html>

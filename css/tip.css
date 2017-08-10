@@ -1,0 +1,65 @@
+@charset "utf-8";
+
+.tip-page {
+    color: #fff;
+    background-color: #0EA6FA;
+}
+.tip-page .content-block {
+    margin: 0 .5rem;
+}
+.tip-page .icon {
+    position: relative;
+    top: 1.5rem;
+    left: 50%;
+    width: 3.6rem;
+    height: 4.5rem;
+    margin-left: -1.8rem;
+    background-position: top center;
+    background-repeat: no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+.tip-page .icon.success {
+    background-image: url("../img/icon/success2.png");
+}
+.tip-page .icon.error {
+    background-image: url("../img/icon/error.png");
+}
+.color-error {color: #FFCC00;}
+.tip-page .title {
+    font-size: 1.3rem;
+    text-align: center;
+    line-height: 3;
+    margin-top: 2.5rem;
+}
+.tip-page .icon+.title {
+    margin-top: 0;
+}
+.tip-page .message {
+    font-size: .75rem;
+    text-align: center;
+    line-height: 1.5;
+    margin-top: .5rem;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+.tip-page .button-box {
+    width: 7.5rem;
+    margin: 1rem auto;
+}
+.tip-page .logo {
+    margin-top: 2.5rem;
+    padding-top: 3.2rem;
+    background: url("../img/icon/logo.png") center top no-repeat;
+    -webkit-background-size: auto 2.6rem;
+    background-size: auto 2.6rem;
+    text-align: center;
+    font-size: .95rem;
+}
+.tip-page .infos {
+    margin-top: 1.5rem;
+    font-size: .6rem;
+    text-align: center;
+    line-height: 1.5;
+}

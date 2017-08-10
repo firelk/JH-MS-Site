@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title></title>
-    <!-- <base href="/test/"/> -->
+
+<head>
+  <title>个人信息管理</title>
+  <!-- <base href="/test/"/> -->
 <base href="/bulid/"/>
 
 <meta charset="UTF-8"/>
@@ -31,11 +32,45 @@
 	window._sitePath = "/bulid/"; // 测试
 </script>
 
-    </head>
-    <body style="background: #eee">
+    <link rel="stylesheet" href="css/scale_slip.css" />
+</head>
 
+<body class="user-info" style="background: #e4e4e4;">
+  <header>
+    <a href="credit/credit_index.html?v_1502330040616" class="return_a"></a>个人信息管理</header>
+ 
+  <div class="box-13  "> 
+    <div class="bd">
+      <ul class="account-grid ">
+        <li>
+          <div class="l">姓名</div><div class="r">张某某</div>
+      	</li>
+        <li>
+          <div class="l">手机号</div><div class="r">138****0001</div>
+      	</li>
+        <li>
+          <div class="l">身份证</div><div class="r">11011119********01</div>
+      	</li>
+        <li>
+          <div class="l">居住地区</div><div class="r">北京</div>
+      	</li>
+        <li>
+          <div class="l">居住地址</div><div class="r">北京市海淀区中关村 有栋房子1-1-101</div>
+      	</li>
+        <li class="name">
+          <div class="l">实名认证</div><div class="r"><span class="">*某<i class="icon1"></i></span></div>
+      	</li>
+        <li class="mobile">
+          <div class="l">手机验证</div><div class="r"><span class="">绑定手机号丢失或停用时更换绑定<i></i></span> </div>
+      	</li>
+        <li class="pay-password">
+          <div class="l">支付密码</div><div class="r"><span class="">可修改消费信贷密码<i></i></span> </div>
+      	</li>
 
-    </body>
+      </ul>
+    </div>
+  </div> 
+</body>
 
 <!-- <scr ipt src='js/lib/zepto/zepto.min.js'></script> -->
 <!-- <sc ript src='js/lib/zepto.cookie/zepto.cookie.min.js'></script> -->
@@ -45,16 +80,10 @@
 <script src='js/lib/vue/vue-resource.min.js'></script>
 <script src='js/common/dictionary.js'></script>
 <script src='js/common/common.js'></script>
-<script src='js/common/main.js?v_1502330040616'></script> 
+<script src='js/common/main.js?v_1502330040616'></script>
+  <script>
+  
+  </script>
+  <script src="js/credit/user-info.js"></script>
 
-<script>
-window.onload= function(){
-  var x = document.createElement("SCRIPT");
-  x.src ='./js/index.js?v_'+ (new Date()).getTime()
-  document.body.appendChild(x);
-}
-
-
-</script>
 </html>
-

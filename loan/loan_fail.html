@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>审核结果</title>
     <!-- <base href="/test/"/> -->
 <base href="/bulid/"/>
 
@@ -33,8 +33,19 @@
 
     </head>
     <body style="background: #eee">
-
-
+    <header><!-- <a href="javascript:history.back(-1)" class="return_a">返回</a> -->审核结果</header>
+       <div class="fail-box">
+            <i class="icon-fail"></i>
+            <p class="p1">
+              对不起您的审核失败！
+            </p>
+            <p class="p2">
+           亲，您的借款审核结果，请稍后再试
+            </p>
+           <!-- <div class="p3">< %=msg</div> -->
+        </div>
+  <a href="loan/loan_step1.html?v_1502330040616" class="btn-view btn">再次申请</a>
+<!--<p class="bot-help">对以上交易有疑问，<a href="">查看帮助中心</a></p>-->
     </body>
 
 <!-- <scr ipt src='js/lib/zepto/zepto.min.js'></script> -->
@@ -45,16 +56,13 @@
 <script src='js/lib/vue/vue-resource.min.js'></script>
 <script src='js/common/dictionary.js'></script>
 <script src='js/common/common.js'></script>
-<script src='js/common/main.js?v_1502330040616'></script> 
-
-<script>
-window.onload= function(){
-  var x = document.createElement("SCRIPT");
-  x.src ='./js/index.js?v_'+ (new Date()).getTime()
-  document.body.appendChild(x);
-}
-
-
-</script>
+<script src='js/common/main.js?v_1502330040616'></script>
+    <script>
+        var code=< %=errorCode% >;
+        if(code='40012209'){
+            $('.find-reset-link').show();
+        }
+       
+    </script>
 </html>
 
