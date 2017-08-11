@@ -248,14 +248,22 @@ function postImgIphone(base64, imgId, inputId) {
             }
         }
     }
-    window.timeoutFn = function (imgId){
+    // window.timeoutFn = function (imgId){
+    //     $.alert('上传失败，请重试!');
+    //     console.log(imgId)
+    //     var pic = $('#' + imgId);
+    //     console.log(pic)
+    //     pic.attr('src', pic.data('src') ).css('opacity',1);
+    //     // window.location
+    // }
+    window['setTimeFlag'+ imgId] = setTimeout(function (imgId){
         $.alert('上传失败，请重试!');
         console.log(imgId)
         var pic = $('#' + imgId);
-        pic.attr('src', pic.data('src') );
+        console.log(pic)
+        pic.attr('src', pic.data('src') ).css('opacity',1);
         // window.location
-    }
-    window['setTimeFlag'+ imgId] = setTimeout('window.timeoutFn("'+ imgId +'")',10000)
+    },10000)
 }
 
 //对图片旋转处理 added by lzk  
