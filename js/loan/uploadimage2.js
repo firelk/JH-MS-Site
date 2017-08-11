@@ -90,8 +90,10 @@ function selectFileImage(fileObj) {
                             quality: 0.8, 
                             orientation: 8 
                         });*/
-                        base64 = canvas.toDataURL("image/jpeg", 0.9);
-                        
+                        // base64 = canvas.toDataURL("image/jpeg", 0.9);
+                        var encoder = new JPEGEncoder();
+                        // alert(encoder)
+                        base64 = encoder.encode(ctx.getImageData(0, 0, expectWidth, expectHeight), 90);
                         postImgIphone(base64, imgId, inputId);
 
                     } else if (navigator.userAgent.match(/Android/i)) { // 修复android  
