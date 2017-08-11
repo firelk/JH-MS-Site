@@ -53,7 +53,7 @@ function selectFileImage(fileObj) {
                     }
                     var canvas = document.createElement("canvas");
                     var ctx = canvas.getContext("2d");
-                    alert('w='+expectWidth+', h='+expectHeight);
+                    // alert('w='+expectWidth+', h='+expectHeight);
                     canvas.width = expectWidth;
                     canvas.height = expectHeight;
                     ctx.drawImage(this, 0, 0, expectWidth, expectHeight);
@@ -83,19 +83,19 @@ function selectFileImage(fileObj) {
                             }
                         }
 
-                        var mpImg = new MegaPixImage(file); 
-                        mpImg.render(canvas, { 
-                            maxWidth: expectWidth, 
-                            maxHeight: expectHeight, 
-                            quality: 0.8, 
-                            // orientation: 8 
-                        });
+                        // var mpImg = new MegaPixImage(file); 
+                        // mpImg.render(canvas, { 
+                        //     maxWidth: expectWidth, 
+                        //     maxHeight: expectHeight, 
+                        //     quality: 0.8, 
+                        //     // orientation: 8 
+                        // });
 
 
 
 
                         base64 = canvas.toDataURL("image/jpeg", 0.3);
-                        alert(canvas.width)
+                        // alert(canvas.width)
                         // var encoder = new JPEGEncoder();
                         // // alert(encoder)
                         // base64 = encoder.encode(ctx.getImageData(0, 0, expectWidth>=expectHeight?expectWidth:expectHeight, expectWidth>=expectHeight?expectHeight:expectWidth), 90);
@@ -136,7 +136,7 @@ function selectFileImage(fileObj) {
                         base64 = canvas.toDataURL("image/jpeg", 0.3);
                         postImgAndroid(base64, imgId, inputId)
                     }
-                    alert(base64.length)
+                    // alert(base64.length)
                     // alert(base64)
                     //uploadImage(base64);  
                     // $("#myImage").attr("src", base64);
