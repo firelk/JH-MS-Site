@@ -94,11 +94,11 @@ function selectFileImage(fileObj) {
 
 
 
-                        base64 = canvas.toDataURL("image/jpeg", 0.9);
+                        base64 = canvas.toDataURL("image/jpeg", 0.6);
                         alert(canvas.width)
-                        var encoder = new JPEGEncoder();
+                        // var encoder = new JPEGEncoder();
                         // // alert(encoder)
-                        base64 = encoder.encode(ctx.getImageData(0, 0, expectWidth>=expectHeight?expectWidth:expectHeight, expectWidth>=expectHeight?expectHeight:expectWidth), 90);
+                        // base64 = encoder.encode(ctx.getImageData(0, 0, expectWidth>=expectHeight?expectWidth:expectHeight, expectWidth>=expectHeight?expectHeight:expectWidth), 90);
                         postImgIphone(base64, imgId, inputId);
 
                     } else if (navigator.userAgent.match(/Android/i)) { // 修复android  
@@ -133,7 +133,7 @@ function selectFileImage(fileObj) {
                             }
                         }
 
-                        base64 = canvas.toDataURL("image/jpeg", 0.9);
+                        base64 = canvas.toDataURL("image/jpeg", 0.6);
                         postImgAndroid(base64, imgId, inputId)
                     }
                     alert(base64.length)
