@@ -248,7 +248,7 @@ function postImgIphone(base64, imgId, inputId) {
             }
         }
     }
-    function timeoutFn(imgId){
+    windiow.timeoutFn = function timeoutFn(imgId){
         $.alert('上传失败，请重试!');
         console.log(imgId)
         var pic = $('#' + imgId);
