@@ -166,7 +166,7 @@ function postImgAndroid(base64, imgId, inputId) {
         return false;
     }
     $.ajax({
-        url: 'uri',
+        url: uri,
         type: 'post',
         dataType: 'json',
         timeout: 120000,
