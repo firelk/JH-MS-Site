@@ -90,6 +90,7 @@ function selectFileImage(fileObj) {
                             orientation: 8 
                         });*/
                         base64 = canvas.toDataURL("image/jpeg", 0.9);
+                        alert(base64.length)
                         postImgIphone(base64, imgId, inputId);
 
                     } else if (navigator.userAgent.match(/Android/i)) { // 修复android  
