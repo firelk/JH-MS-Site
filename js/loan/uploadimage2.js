@@ -53,7 +53,7 @@ function selectFileImage(fileObj) {
                     }
                     var canvas = document.createElement("canvas");
                     var ctx = canvas.getContext("2d");
-                    alert('w='+expectWidth+' h='+expectHeight);
+                    alert('w='+expectWidth+', h='+expectHeight);
                     canvas.width = expectWidth;
                     canvas.height = expectHeight;
                     ctx.drawImage(this, 0, 0, expectWidth, expectHeight);
@@ -88,23 +88,17 @@ function selectFileImage(fileObj) {
                             maxWidth: expectWidth, 
                             maxHeight: expectHeight, 
                             quality: 0.8, 
-                            orientation: 8 
+                            // orientation: 8 
                         });
-
-// var mpImg = new MegaPixImage(file);
-
-//     // Render resized image into image element using quality option.
-//     // Quality option is valid when rendering into image element.
-//     var resImg = document.getElementById('resultImage');
-//     mpImg.render(resImg, { maxWidth: 300, maxHeight: 300, quality: 0.5 });
 
 
 
 
                         base64 = canvas.toDataURL("image/jpeg", 0.9);
-                        // var encoder = new JPEGEncoder();
+                        alert(canvas.width)
+                        var encoder = new JPEGEncoder();
                         // // alert(encoder)
-                        // base64 = encoder.encode(ctx.getImageData(0, 0, expectWidth, expectHeight), 90);
+                        base64 = encoder.encode(ctx.getImageData(0, 0, expectWidth>=expectHeight?expectWidth:expectHeight, expectWidth>=expectHeight?expectHeight:expectWidth), 90);
                         postImgIphone(base64, imgId, inputId);
 
                     } else if (navigator.userAgent.match(/Android/i)) { // 修复android  
