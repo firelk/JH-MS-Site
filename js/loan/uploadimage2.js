@@ -205,7 +205,6 @@ function postImgIphone(base64, imgId, inputId) {
 
     var photoType = photoTypeFn(inputId);
 
-
     var uri = "/msxfInterface/file/singleUpload.do";
     var file = base64;
 
@@ -252,7 +251,7 @@ function postImgIphone(base64, imgId, inputId) {
     window.setTimeFlag = setTimeout(function(){
         alert('上传失败，请重试!');
         pic.attr('src', pic.data('src') );
-        window.location
+        // window.location
     },120000)
 }
 
