@@ -14,11 +14,16 @@ $(function () {
                     $.alert('请上传完成身份证国徽面后提交！');
                     return false;   
                 }
+                if($('#zstc').attr('src')=='img/shouchishenfenzheng.png' || $('#zstc').attr('src')=='/bulid/img/lodding.gif'){
+                    $.alert('请上传完成手持身份证后提交！');
+                    return false;   
+                }
                 if (1) {
                     $('.btn-next').attr('disabled','disabled').html('loading...')
 
                     // _t.$http.post( window._appPath +'file/upload.do', {
                     // window._appPath = 'http://192.168.28.248:9090/msxfInterface/'
+                    
                     _t.$http.post( window._appPath +'file/singleUploadStatusQuery.do', {
                         openId:$.cookie('openId')
                     },{

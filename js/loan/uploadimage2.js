@@ -144,7 +144,7 @@ function selectFileImage(fileObj) {
     }
 }
 function photoTypeFn(inputId){
-    var photoType ='' 
+    var photoType =''; //F 正面 R 背面 D 手持
     if (inputId == 'Photo_A') {
         photoType = 'F'
     }
@@ -161,40 +161,42 @@ function postImgAndroid(base64, imgId, inputId) {
     var pic = $('#' + imgId);
     var ipt = $('#' + inputId + '-src');
     var photoType = photoTypeFn(inputId);
-    // pic.attr('src', "/bulid/img/lodding.gif");
-        // var file = null;
-        // file = this.files[0];
-        // console.log(file);
-        // file = $("#myImage").attr('src');
 
-        // pic.attr('src', base64);
-        // ipt.val(req.src);
     if (!base64) {
         return false;
     }
-    // alert(base64.length)
-    // clearTimeout(window.setTimeFlag);
-    // window.setTimeFlag = setTimeout(function(){
-    //     alert('上传失败，请重试!');
-    //     pic.attr('src',srcObj[imgId] );
-    // },30000);
-    // $.post(uri + "?img=" + pic.attr('src'), {
-    $.post(uri , {
-        'openId': $.cookie('openId'),
-        'photoBase64Code': base64,
-        'photoType': photoType //F 正面 R 背面
-    }, function(data, textStatus, xhr) {
-        // alert(data)
-        clearTimeout(window.setTimeFlag);
-        var reqstr = data || '{src:""}';
-        /*let reqstr = JSON.parse(b);*/
-        // var req = JSON.parse(reqstr.replace(/[\\]/g, ''));
-        // console.log(req);
+    $.ajax({
+        url: 'uri',
+        type: 'post',
+        dataType: 'json',
+        timeout: 120000,
+        data: {
+            'openId': $.cookie('openId'),
+            'photoBase64Code': base64,
+            'photoType': photoType 
+        }
+    })
+    .done(function() {
+        // console.log("success");
+        pic.attr('src', base64).css('opacity', 1);// 新加的 20170802
+    })
+    .fail(function() {
+        console.log("error");
+        pic.attr('src', pic.data('src')).css('opacity',1);
+    })
+  
+    
+    // $.post(uri , {
+    //     'openId': $.cookie('openId'),
+    //     'photoBase64Code': base64,
+    //     'photoType': photoType 
+    // }, function(data, textStatus, xhr) {
+    //     // alert(data)
+    //     clearTimeout(window.setTimeFlag);
+    //     // var reqstr = data || '{src:""}';
 
-        pic.attr('src', base64).css('opacity',1);// 新加的 20170802
-        // pic.attr('src', req.src);
-        // ipt.val(req.src);
-    });
+    //     pic.attr('src', base64).css('opacity',1);// 新加的 20170802 
+    // });
 }
 
 function postImgIphone(base64, imgId, inputId) {
@@ -203,16 +205,10 @@ function postImgIphone(base64, imgId, inputId) {
 
     var photoType = photoTypeFn(inputId);
 
-    // pic.attr('src', base64);
+
     var uri = "/msxfInterface/file/singleUpload.do";
     var file = base64;
-    // var srcObj= {
-    //     'zsta':'images/id1.png',
-    //     'zstb':'images/id2.png',
-    //     'zstc':'images/id3.png'
-    // }
-    // // pic.attr('src', "/bulid/img/lodding.gif");
-    //     clearTimeout(window.setTimeFlag);
+
     var fd = new FormData(); // 创建表单对象
     // 创建请求主体对象:
     try {
@@ -253,11 +249,11 @@ function postImgIphone(base64, imgId, inputId) {
             }
         }
     }
-    // window.setTimeFlag = setTimeout(function(){
-    //     alert('上传失败，请重试!');
-    //     pic.attr('src',srcObj[imgId] );
-    //     window.location
-    // },120000)
+    window.setTimeFlag = setTimeout(function(){
+        alert('上传失败，请重试!');
+        pic.attr('src', pic.data('src') );
+        window.location
+    },120000)
 }
 
 //对图片旋转处理 added by lzk  
