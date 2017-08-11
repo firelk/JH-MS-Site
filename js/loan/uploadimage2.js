@@ -256,7 +256,7 @@ function postImgIphone(base64, imgId, inputId) {
         pic.attr('src', pic.data('src') ).css('opacity',1);
         // window.location
     }
-    window['setTimeFlag'+ imgId] = setTimeout('window.uploadTimeoutFn("'+ imgId +'")',10000)
+    window['setTimeFlag'+ imgId] = setTimeout('window.uploadTimeoutFn("'+ imgId +'")',120000)
 }
 
 //对图片旋转处理 added by lzk  
