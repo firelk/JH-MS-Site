@@ -72,9 +72,9 @@ $(function () {
             var imgw = $('#zsta').width()
             imgw = imgw>500?500:imgw;
             var imgh = 180/290*imgw;
-            $('#zsta').height(imgh);
-            $('#zstb').height(imgh);
-            $('#zstc').height(imgh);
+            $('#zsta').height(imgh).css('opacity',1);
+            $('#zstb').height(imgh).css('opacity',1);
+            $('#zstc').height(imgh).css('opacity',1);
 
         }
     })
