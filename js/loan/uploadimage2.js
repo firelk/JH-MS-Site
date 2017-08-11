@@ -83,17 +83,28 @@ function selectFileImage(fileObj) {
                             }
                         }
 
-                        /*var mpImg = new MegaPixImage(image); 
+                        var mpImg = new MegaPixImage(image); 
                         mpImg.render(canvas, { 
-                            maxWidth: 800, 
-                            maxHeight: 1200, 
+                            maxWidth: expectWidth, 
+                            maxHeight: expectHeight, 
                             quality: 0.8, 
                             orientation: 8 
-                        });*/
-                        // base64 = canvas.toDataURL("image/jpeg", 0.9);
-                        var encoder = new JPEGEncoder();
-                        // alert(encoder)
-                        base64 = encoder.encode(ctx.getImageData(0, 0, expectWidth, expectHeight), 90);
+                        });
+
+// var mpImg = new MegaPixImage(file);
+
+//     // Render resized image into image element using quality option.
+//     // Quality option is valid when rendering into image element.
+//     var resImg = document.getElementById('resultImage');
+//     mpImg.render(resImg, { maxWidth: 300, maxHeight: 300, quality: 0.5 });
+
+
+
+
+                        base64 = canvas.toDataURL("image/jpeg", 0.9);
+                        // var encoder = new JPEGEncoder();
+                        // // alert(encoder)
+                        // base64 = encoder.encode(ctx.getImageData(0, 0, expectWidth, expectHeight), 90);
                         postImgIphone(base64, imgId, inputId);
 
                     } else if (navigator.userAgent.match(/Android/i)) { // 修复android  
