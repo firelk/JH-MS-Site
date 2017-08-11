@@ -202,6 +202,9 @@ function postImgIphone(base64, imgId, inputId) {
     if (inputId == 'Photo_B') {
         photoType = 'R'
     }
+    if (inputId == 'Photo_C') {
+        photoType = 'D'
+    }
 
     // pic.attr('src', base64);
     var uri = "/msxfInterface/file/singleUpload.do";

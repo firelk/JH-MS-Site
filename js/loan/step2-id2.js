@@ -29,7 +29,7 @@ $(function () {
                         console.log(data,1111)
 
                         if(data.code==0){
-                            if (data.data.faceFStatus==1 && data.data.faceRStatus==1) {
+                            if (data.data.faceFStatus==1 && data.data.faceRStatus==1 && data.data.faceDStatus==1) {
                                 window.location.href="loan/loan_step2_1.html";
                             }
                             if(data.data.faceFStatus==0){//0未上传 1上传成功 2上传失败
@@ -41,6 +41,11 @@ $(function () {
                                 alert('身份证国徽面未上传')
                             }else if(data.data.faceRStatus==2){
                                 alert('身份证国徽面上传失败')
+                            }
+                            if(data.data.faceDStatus==0){
+                                alert('手持身份证未上传')
+                            }else if(data.data.faceDStatus==2){
+                                alert('手持身份证上传失败')
                             }
 
                             // window.location.reload();
