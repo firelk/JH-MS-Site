@@ -83,7 +83,7 @@ function selectFileImage(fileObj) {
                             }
                         }
 
-                        var mpImg = new MegaPixImage(image); 
+                        var mpImg = new MegaPixImage(file); 
                         mpImg.render(canvas, { 
                             maxWidth: expectWidth, 
                             maxHeight: expectHeight, 
