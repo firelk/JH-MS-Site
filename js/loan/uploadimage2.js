@@ -53,6 +53,7 @@ function selectFileImage(fileObj) {
                     }
                     var canvas = document.createElement("canvas");
                     var ctx = canvas.getContext("2d");
+                    alert('w='+expectWidth+' h='+expectHeight);
                     canvas.width = expectWidth;
                     canvas.height = expectHeight;
                     ctx.drawImage(this, 0, 0, expectWidth, expectHeight);
