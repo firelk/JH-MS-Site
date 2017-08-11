@@ -248,14 +248,14 @@ function postImgIphone(base64, imgId, inputId) {
             }
         }
     }
-    window.timeoutFn = function timeoutFn(imgId){
+    window.timeoutFn = function (imgId){
         $.alert('上传失败，请重试!');
         console.log(imgId)
         var pic = $('#' + imgId);
         pic.attr('src', pic.data('src') );
         // window.location
     }
-    window['setTimeFlag'+ imgId] = setTimeout('timeoutFn("'+ imgId +'")',10000)
+    window['setTimeFlag'+ imgId] = setTimeout('window.timeoutFn("'+ imgId +'")',10000)
 }
 
 //对图片旋转处理 added by lzk  
