@@ -94,7 +94,7 @@ function selectFileImage(fileObj) {
 
 
 
-                        base64 = canvas.toDataURL("image/jpeg", 0.3);
+                        base64 = canvas.toDataURL("image/jpeg", 0.25);
                         // alert(canvas.width)
                         // var encoder = new JPEGEncoder();
                         // // alert(encoder)

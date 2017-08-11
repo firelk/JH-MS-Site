@@ -23,7 +23,7 @@ $(function () {
 
                     // _t.$http.post( window._appPath +'file/upload.do', {
                     // window._appPath = 'http://192.168.28.248:9090/msxfInterface/'
-                    
+
                     _t.$http.post( window._appPath +'file/singleUploadStatusQuery.do', {
                         openId:$.cookie('openId')
                     },{
@@ -68,6 +68,13 @@ $(function () {
             }
         },
         created:function(){
+
+            var imgw = $('#zsta').width()
+            imgw = imgw>500?500:imgw;
+            var imgh = 180/290*imgw;
+            $('#zsta').height(imgh);
+            $('#zstb').height(imgh);
+            $('#zstc').height(imgh);
 
         }
     })
