@@ -94,7 +94,7 @@ function selectFileImage(fileObj) {
 
 
 
-                        base64 = canvas.toDataURL("image/jpeg", 0.6);
+                        base64 = canvas.toDataURL("image/jpeg", 0.3);
                         alert(canvas.width)
                         // var encoder = new JPEGEncoder();
                         // // alert(encoder)
@@ -133,7 +133,7 @@ function selectFileImage(fileObj) {
                             }
                         }
 
-                        base64 = canvas.toDataURL("image/jpeg", 0.6);
+                        base64 = canvas.toDataURL("image/jpeg", 0.3);
                         postImgAndroid(base64, imgId, inputId)
                     }
                     alert(base64.length)
