@@ -224,7 +224,7 @@ function postImgIphone(base64, imgId, inputId) {
     xhr.open("POST", uri + "?openId=" + $.cookie('openId') +'&photoType='+ photoType  , true);
     xhr.send(fd);
     xhr.onreadystatechange = function(i) {
-        clearTimeout(window.setTimeFlag);
+        clearTimeout(window['setTimeFlag'+ imgId]);
         if (xhr.readyState == 4 && xhr.status == 200) {
             
             var b = xhr.responseText;
@@ -248,8 +248,9 @@ function postImgIphone(base64, imgId, inputId) {
             }
         }
     }
-    window.setTimeFlag = setTimeout(function(){
+    window['setTimeFlag'+ imgId] = setTimeout(function(imgId){
         alert('上传失败，请重试!');
+        var pic = $('#' + imgId);
         pic.attr('src', pic.data('src') );
         // window.location
     },120000)
