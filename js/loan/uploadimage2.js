@@ -143,11 +143,7 @@ function selectFileImage(fileObj) {
             
     }
 }
-
-function postImgAndroid(base64, imgId, inputId) {
-    var uri = "/msxfInterface/file/singleUpload.do";
-    var pic = $('#' + imgId);
-    var ipt = $('#' + inputId + '-src');
+function photoTypeFn(inputId){
     var photoType ='' 
     if (inputId == 'Photo_A') {
         photoType = 'F'
@@ -155,6 +151,16 @@ function postImgAndroid(base64, imgId, inputId) {
     if (inputId == 'Photo_B') {
         photoType = 'R'
     }
+    if (inputId == 'Photo_C') {
+        photoType = 'D'
+    }
+    return photoType;
+}
+function postImgAndroid(base64, imgId, inputId) {
+    var uri = "/msxfInterface/file/singleUpload.do";
+    var pic = $('#' + imgId);
+    var ipt = $('#' + inputId + '-src');
+    var photoType = photoTypeFn(inputId);
     // pic.attr('src', "/bulid/img/lodding.gif");
         // var file = null;
         // file = this.files[0];
@@ -195,16 +201,7 @@ function postImgIphone(base64, imgId, inputId) {
     var pic = $('#' + imgId);
     var ipt = $('#' + inputId + '-src');
 
-    var photoType = '' 
-    if (inputId == 'Photo_A') {
-        photoType = 'F'
-    }
-    if (inputId == 'Photo_B') {
-        photoType = 'R'
-    }
-    if (inputId == 'Photo_C') {
-        photoType = 'D'
-    }
+    var photoType = photoTypeFn(inputId);
 
     // pic.attr('src', base64);
     var uri = "/msxfInterface/file/singleUpload.do";
