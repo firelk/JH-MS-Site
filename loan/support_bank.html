@@ -2,42 +2,34 @@
 <html lang="en">
 <head>
     <title>支持银行卡</title>
-    <!-- <base href="/test/"/> -->
-<base href="/bulid/"/>
+    
+<base href="/bulid/">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<!-- 尺寸的设置以及页面是否允许缩放 -->
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
-<!-- 删除苹果默认的工具栏和菜单栏 -->
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-<!-- 忽略页面中的数字识别为电话,忽略email识别 -->
-<meta name="format-detection" content="telephone=no, email=no"/>
-<!-- 启用360浏览器的极速模式(webkit) -->
-<meta name="renderer" content="webkit"/>
-<!-- 解决http https混合加载的安全性问题 -->
-<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<meta name="format-detection" content="telephone=no, email=no">
+
+<meta name="renderer" content="webkit">
+
+<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
 
 <link rel="shortcut icon" href="favicon.ico">
-<link rel="stylesheet" href="css/base.css"/>
-<link rel="stylesheet" href="css/style.css?v_1502851861933"/>
-<script>
-	// 项目根路径
-	// window._appPath = "http://210.14.129.41:8080/";
-	window._appPath = "/msxfInterface/";
-	// window._sitePath = "/test/"; // 测试
-	window._sitePath = "/bulid/"; // 测试
-</script>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/style.css?v_1502855519725">
+<script>window._appPath="/msxfInterface/",window._sitePath="/bulid/"</script>
 
 </head>
-<body style="overflow: auto;">
+<body style="overflow:auto">
 	<header><a href="javascript:history.back(-1)" class="return_a">返回</a>支持银行卡</header>
-	<!-- 支持银行列表 -->
+	
 	<ul class="support-bank-box"> 
 	 
-	    <li v-for="item in bankList" v-cloak >
+	    <li v-for="item in bankList" v-cloak>
 	        <div class="fl"><img v-bind:src="item.picUrl" alt=""><span>{{item.bankName}}</span></div>
 	        <div class="fr">每笔额度{{item.singleAmountLimit}}元</div>
 	    </li>
@@ -45,36 +37,14 @@
 	</ul>
 </body>
 
-<!-- <scr ipt src='js/lib/zepto/zepto.min.js'></script> -->
-<!-- <sc ript src='js/lib/zepto.cookie/zepto.cookie.min.js'></script> -->
-<script src='js/lib/jquery/3.1.1/jquery.min.js'></script>
-<script src='js/lib/jquery.cookie/jquery.cookie.js'></script>
-<script src='js/lib/vue/vue.min.js'></script>
-<script src='js/lib/vue/vue-resource.min.js'></script>
-<script src='js/common/dictionary.js'></script>
-<script src='js/common/common.js'></script>
-<script src='js/common/main.js?v_1502851861933'></script>
-<script>
-    new Vue({
-    	el:'.support-bank-box',
-    	data:{
-    		bankList:[]
-    	},
-    	created:function(){
-    		// 支持银行列表
-			this.$http.post(window._appPath +'repay/bank/support.do',{
-			    emulateJSON:true
-			}).then(function(res){
-				var data = res.data
-				if(data.code==0){
-					this.bankList = data.data
-				}else{
-					console.log(res)
-				}
-			}, function(res){
-				console.log(res)
-			})
-    	}
-    })
-</script>
+
+
+<script src="js/lib/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/lib/jquery.cookie/jquery.cookie.js"></script>
+<script src="js/lib/vue/vue.min.js"></script>
+<script src="js/lib/vue/vue-resource.min.js"></script>
+<script src="js/common/dictionary.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/common/main.js?v_1502855519725"></script>
+<script>new Vue({el:".support-bank-box",data:{bankList:[]},created:function(){this.$http.post(window._appPath+"repay/bank/support.do",{emulateJSON:!0}).then(function(t){var a=t.data;0==a.code?this.bankList=a.data:console.log(t)},function(t){console.log(t)})}})</script>
 </html>

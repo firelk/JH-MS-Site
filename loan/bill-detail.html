@@ -4,95 +4,85 @@
 
 <head>
   <title>账单</title>
-  <!-- <base href="/test/"/> -->
-<base href="/bulid/"/>
+  
+<base href="/bulid/">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<!-- 尺寸的设置以及页面是否允许缩放 -->
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
-<!-- 删除苹果默认的工具栏和菜单栏 -->
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-<!-- 忽略页面中的数字识别为电话,忽略email识别 -->
-<meta name="format-detection" content="telephone=no, email=no"/>
-<!-- 启用360浏览器的极速模式(webkit) -->
-<meta name="renderer" content="webkit"/>
-<!-- 解决http https混合加载的安全性问题 -->
-<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<meta name="format-detection" content="telephone=no, email=no">
+
+<meta name="renderer" content="webkit">
+
+<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
 
 <link rel="shortcut icon" href="favicon.ico">
-<link rel="stylesheet" href="css/base.css"/>
-<link rel="stylesheet" href="css/style.css?v_1502854514867"/>
-<script>
-	// 项目根路径
-	// window._appPath = "http://210.14.129.41:8080/";
-	window._appPath = "/msxfInterface/";
-	// window._sitePath = "/test/"; // 测试
-	window._sitePath = "/bulid/"; // 测试
-</script>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/style.css?v_1502855519725">
+<script>window._appPath="/msxfInterface/",window._sitePath="/bulid/"</script>
 
-    <link rel="stylesheet" href="css/scale_slip.css" />
+    <link rel="stylesheet" href="css/scale_slip.css">
 </head>
 
-<body class="fill-detail instalment-repayment" style="background: #e4e4e4;">
+<body class="fill-detail instalment-repayment" style="background:#e4e4e4">
   <div class="top-loan">
     <div class="top-header">
       <a href="javascript:history.back(-1)" class="return_a"> </a>
       账单
-      <!-- <a href="javascript:;" class="top-zhifu">
-			支付
-		</a> -->
+      
     </div>
   </div>
   <div class="box-4">
     <div class="hd">
-      <ul class="">
-        <li class="">
+      <ul>
+        <li>
           <div class="l">2016.08.08 </div>
           <div class="r">订单号: <span class="color-blue">20030204902</span></div>
         </li>
-        <li class="">
+        <li>
           <div class="l">分期数量:6期</div>
           <div class="r">已还金额:  <span class="color-orange">¥600000.00</span> </div>
         </li>
-        <li class="">待还金额: <span class="color-orange">¥ 600000.00</span></li>
+        <li>待还金额: <span class="color-orange">¥ 600000.00</span></li>
       </ul>
     </div>
     <div class="bd">
-      <ul class="">
-        <li class=""><i class="fqbj"></i>分期本金: <span class="color-red">¥ 10000000.00</span></li>
-        <li class=""><i class="fqxf"></i>分期息费: <span class="color-red">¥ 1000000.00</span></li>
-        <li class=""><i class="hjyh"></i>合计应还: <span class="color-red">¥ 10000000.00</span></li>
+      <ul>
+        <li><i class="fqbj"></i>分期本金: <span class="color-red">¥ 10000000.00</span></li>
+        <li><i class="fqxf"></i>分期息费: <span class="color-red">¥ 1000000.00</span></li>
+        <li><i class="hjyh"></i>合计应还: <span class="color-red">¥ 10000000.00</span></li>
       </ul>
     </div>
   </div>
   <div class="box-5">
     <div class="hd"></div>
     <div class="bd">
-      <ul class="">
-        <li class=""><span class="l">1期</span><span class="m color-red">18000.00</span><span class="r">05.08未还<i></i></span></li>
-        <li class=""><span class="l">2期</span><span class="m color-red">18000.00</span><span class="r">05.08未还<i></i></span></li>
-        <li class=""><span class="l icon-icon"><i class=""><input type="hidden" name=""></i>3期</span><span class="m color-red">18000.00</span><span class="r">05.08未还<i></i></span></li>
-        <li class=""><span class="l icon-icon active"><i class=""><input type="hidden" name=""></i>4期</span><span class="m color-red">18000.00</span><span class="r">05.08未还<i></i></span></li>
-        <li class=""><span class="l icon-icon"><i class=""><input type="hidden" name=""></i>3期</span><span class="m color-red">18000.00</span><span class="r">05.08未还<i></i></span></li>
-        <li class=""><span class="l icon-icon active"><i class=""><input type="hidden" name=""></i>4期</span><span class="m color-red">18000.00</span><span class="r">05.08未还<i></i></span></li>
+      <ul>
+        <li><span class="l">1期</span><span class="m color-red">18000.00</span><span class="r">05.08未还<i></i></span></li>
+        <li><span class="l">2期</span><span class="m color-red">18000.00</span><span class="r">05.08未还<i></i></span></li>
+        <li><span class="l icon-icon"><i><input type="hidden" name=""></i>3期</span><span class="m color-red">18000.00</span><span class="r">05.08未还<i></i></span></li>
+        <li><span class="l icon-icon active"><i><input type="hidden" name=""></i>4期</span><span class="m color-red">18000.00</span><span class="r">05.08未还<i></i></span></li>
+        <li><span class="l icon-icon"><i><input type="hidden" name=""></i>3期</span><span class="m color-red">18000.00</span><span class="r">05.08未还<i></i></span></li>
+        <li><span class="l icon-icon active"><i><input type="hidden" name=""></i>4期</span><span class="m color-red">18000.00</span><span class="r">05.08未还<i></i></span></li>
       </ul>
     </div>
   </div> 
 <div class="bottom-pay-box"><div class="l">待支付: <span class="color-orange">¥ 6000000000.00</span></div><div class="r"><a class="btn-ir-pay">立即还款</a></div></div>
 </body>
 
-<!-- <scr ipt src='js/lib/zepto/zepto.min.js'></script> -->
-<!-- <sc ript src='js/lib/zepto.cookie/zepto.cookie.min.js'></script> -->
-<script src='js/lib/jquery/3.1.1/jquery.min.js'></script>
-<script src='js/lib/jquery.cookie/jquery.cookie.js'></script>
-<script src='js/lib/vue/vue.min.js'></script>
-<script src='js/lib/vue/vue-resource.min.js'></script>
-<script src='js/common/dictionary.js'></script>
-<script src='js/common/common.js'></script>
-<script src='js/common/main.js?v_1502854514867'></script>
+
+
+<script src="js/lib/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/lib/jquery.cookie/jquery.cookie.js"></script>
+<script src="js/lib/vue/vue.min.js"></script>
+<script src="js/lib/vue/vue-resource.min.js"></script>
+<script src="js/common/dictionary.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/common/main.js?v_1502855519725"></script>
   <script src="js/loan/bill-detail.js"></script>
 
 </html>

@@ -3,100 +3,59 @@
 
 <head>
     <title>消费账单</title>
-    <!-- <base href="/test/"/> -->
-<base href="/bulid/"/>
+    
+<base href="/bulid/">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<!-- 尺寸的设置以及页面是否允许缩放 -->
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
-<!-- 删除苹果默认的工具栏和菜单栏 -->
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-<!-- 忽略页面中的数字识别为电话,忽略email识别 -->
-<meta name="format-detection" content="telephone=no, email=no"/>
-<!-- 启用360浏览器的极速模式(webkit) -->
-<meta name="renderer" content="webkit"/>
-<!-- 解决http https混合加载的安全性问题 -->
-<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<meta name="format-detection" content="telephone=no, email=no">
+
+<meta name="renderer" content="webkit">
+
+<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
 
 <link rel="shortcut icon" href="favicon.ico">
-<link rel="stylesheet" href="css/base.css"/>
-<link rel="stylesheet" href="css/style.css?v_1502854514867"/>
-<script>
-	// 项目根路径
-	// window._appPath = "http://210.14.129.41:8080/";
-	window._appPath = "/msxfInterface/";
-	// window._sitePath = "/test/"; // 测试
-	window._sitePath = "/bulid/"; // 测试
-</script>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/style.css?v_1502855519725">
+<script>window._appPath="/msxfInterface/",window._sitePath="/bulid/"</script>
 
-        <link rel="stylesheet" href="css/scale_slip.css" />
+        <link rel="stylesheet" href="css/scale_slip.css">
 </head>
 
-<body class="user-info" style="background: #e4e4e4;">
+<body class="user-info" style="background:#e4e4e4">
     <header>
         <a href="javascript:history.back(-1)" class="return_a"></a>消费账单</header>
-    <div class="box-15 box-2 main " v-cloak>
+    <div class="box-15 box-2 main" v-cloak>
         <div class="bd">
             <div class="item" v-for="item in list">
                 <div class="hd-line">
-                    <div class=" ">{{ item.jysj }}</div>
-                    <div class=" ">订单号: <span class="">{{item.paymentId}}</span></div>
+                    <div>{{ item.jysj }}</div>
+                    <div>订单号: <span>{{item.paymentId}}</span></div>
                 </div>
                 <div class="bd-line">
                     <div class="ll">消费金额: <span class="color-red">¥ {{item.xfje}}</span></div>
                 </div>
             </div>
-            <!-- <div class="item">
-                <div class="hd-line">
-                    <div class="l">2016.09.09</div>
-                    <div class="r">订单号: <span class="">20030204902</span></div>
-                </div>
-                <div class="bd-line">
-                    <div class="ll">消费金额: <span class="color-red">¥ 200000.00</span></div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="hd-line">
-                    <div class="l">2016.09.09</div>
-                    <div class="r">订单号: <span class="">20030204902</span></div>
-                </div>
-                <div class="bd-line">
-                    <div class="ll">消费金额: <span class="color-red">¥ 200000.00</span></div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="hd-line">
-                    <div class="l">2016.09.09</div>
-                    <div class="r">订单号: <span class="">20030204902</span></div>
-                </div>
-                <div class="bd-line">
-                    <div class="ll">消费金额: <span class="color-red">¥ 200000.00</span></div>
-                </div>
-            </div> -->
+            
         </div>
     </div>
-    <!-- <div class="index-nav">
-  <ul class="">
-    <li class="icon-icon"><a href="loan/index.html?v_1502854514867"><i class="icon-1"></i><span class="">账户</span></a></li>
-    <li class="icon-icon"><a href="credit/credit_index.html?v_1502854514867"><i class="icon-2"></i><span class="">信用</span></a></li>
-    <li class="icon-icon active"><a href="javascript:void(0)"><i class="icon-3"></i><span class="">消费</span></a></li>
-    <li class="icon-icon"><a href="mall/mall_index.html?v_1502854514867"><i class="icon-4"></i><span class="">商城</span></a></li>
-  </ul>
-</div> -->
+    
 </body>
 
-<!-- <scr ipt src='js/lib/zepto/zepto.min.js'></script> -->
-<!-- <sc ript src='js/lib/zepto.cookie/zepto.cookie.min.js'></script> -->
-<script src='js/lib/jquery/3.1.1/jquery.min.js'></script>
-<script src='js/lib/jquery.cookie/jquery.cookie.js'></script>
-<script src='js/lib/vue/vue.min.js'></script>
-<script src='js/lib/vue/vue-resource.min.js'></script>
-<script src='js/common/dictionary.js'></script>
-<script src='js/common/common.js'></script>
-<script src='js/common/main.js?v_1502854514867'></script>
+
+
+<script src="js/lib/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/lib/jquery.cookie/jquery.cookie.js"></script>
+<script src="js/lib/vue/vue.min.js"></script>
+<script src="js/lib/vue/vue-resource.min.js"></script>
+<script src="js/common/dictionary.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/common/main.js?v_1502855519725"></script>
     <script src="js/consume/consume_bill.js"></script>
 
 </html>

@@ -3,84 +3,54 @@
 
 <head>
   <title>账户</title>
-  <!-- <base href="/test/"/> -->
-<base href="/bulid/"/>
+  
+<base href="/bulid/">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<!-- 尺寸的设置以及页面是否允许缩放 -->
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
-<!-- 删除苹果默认的工具栏和菜单栏 -->
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-<!-- 忽略页面中的数字识别为电话,忽略email识别 -->
-<meta name="format-detection" content="telephone=no, email=no"/>
-<!-- 启用360浏览器的极速模式(webkit) -->
-<meta name="renderer" content="webkit"/>
-<!-- 解决http https混合加载的安全性问题 -->
-<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<meta name="format-detection" content="telephone=no, email=no">
+
+<meta name="renderer" content="webkit">
+
+<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
 
 <link rel="shortcut icon" href="favicon.ico">
-<link rel="stylesheet" href="css/base.css"/>
-<link rel="stylesheet" href="css/style.css?v_1502854514867"/>
-<script>
-	// 项目根路径
-	// window._appPath = "http://210.14.129.41:8080/";
-	window._appPath = "/msxfInterface/";
-	// window._sitePath = "/test/"; // 测试
-	window._sitePath = "/bulid/"; // 测试
-</script>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/style.css?v_1502855519725">
+<script>window._appPath="/msxfInterface/",window._sitePath="/bulid/"</script>
 
-    <link rel="stylesheet" href="css/scale_slip.css" />
+    <link rel="stylesheet" href="css/scale_slip.css">
 </head>
 
-<body class="loan-index" id="" style="background: #e4e4e4;">
+<body class="loan-index" style="background:#e4e4e4">
   <main>
     <div id="Vueindex" v-cloak>
       <div class="top-loan">
         <div class="top-header">
-          <!-- <a href="javascript:history.back(-1)" class="return_a"> </a> -->
+          
           账户
         </div>
         <div class="user-box">
           <div class="user-shape">
-            <img src="img/loan.png" alt="" class="">
+            <img src="img/loan.png" alt="">
           </div>
         </div>
         <div class="text-center available-limit">
-          <div class="">当前可用额度</div>
-          <div class="h1 " v-html="validAmount"></div>
+          <div>当前可用额度</div>
+          <div class="h1" v-html="validAmount"></div>
         </div>
-        <!-- <div class="loan-bot-info">
-					<ul>
-						<li>
-							<p>本期待还金额</p>
-							<div class="date-info current-amount">111.00</div>
-							<p>本期还款截期</p>
-							<div class="date-info current-date">2016-09-09</div>
-						</li>
-						<li>
-							<p>下期待还金额</p>
-							<div class="date-info next-amount">111.00</div>
-							<p>下期还款截期</p>
-							<div class="date-info next-date">2016-09-09</div>
-						</li>
-					</ul>
-				</div> -->
+        
       </div>
       <div class="user-loan-form" id="user-loan-form">
-        <input type="button" id="payment" class="btn " v-on:click="paymentFn()" value="">
+        <input type="button" id="payment" class="btn" v-on:click="paymentFn()">
       </div>
-      <!-- <form action="" method="post" class="user-loan-form" id="user-loan-form"> 
-				<input type="button" id="repayment" class="btn btn-repayment" value="立即还款">
-			</form> -->
-      <!-- <div class="teyh-box">
-				<ul class="">
-					<li class="teyh-te"><span class=""><i class="icon-teyh-te"></i>提额申请</span></li>
-					<li class="teyh-yh"><span class=""><i class="icon-teyh-yh"></i>优惠活动</span></li>
-				</ul>
-			</div> -->
+      
+      
       <div class="box-1 mt1rem bdb1px">
         <div class="hd bdb1px">
           <h3 class="bq"><i class="icon-bqhk"></i>本期还款</h3>
@@ -89,9 +59,9 @@
         <div class="bd">
           <ul class="account-grid text-center">
             <li>
-              <div class="">待还金额（元）</div><span class="">{{ shdRepayAmt }}</span></li>
+              <div>待还金额（元）</div><span>{{ shdRepayAmt }}</span></li>
             <li>
-              <div class="">还款截止日期</div><span class="">{{ pmtDueDate }}</span></li>
+              <div>还款截止日期</div><span>{{ pmtDueDate }}</span></li>
           </ul>
         </div>
       </div>
@@ -101,17 +71,17 @@
         <div class="bd">
           <ul class="account-grid text-center">
             <li>
-              <div class="">全部应还款额（元）</div><span class="needPay">{{ needPay }} </span></li>
+              <div>全部应还款额（元）</div><span class="needPay">{{ needPay }} </span></li>
             <li>
-              <div class="">下个账单日</div><span class="">{{ stmtDate }}</span></li>
+              <div>下个账单日</div><span>{{ stmtDate }}</span></li>
           </ul>
         </div>
       </div>
       <div class="box-logo">
         <div class="hd">
-          <span class=""><img src="./img/jh/logo3.png" alt=""></span>
-          <span class=""><img src="./img/jh/logo2.png" alt=""></span>
-          <span class=""><img src="./img/jh/logo1.png" alt=""></span>
+          <span><img src="./img/jh/logo3.png" alt=""></span>
+          <span><img src="./img/jh/logo2.png" alt=""></span>
+          <span><img src="./img/jh/logo1.png" alt=""></span>
         </div>
         <div class="bd text-center">
           本服务由佳惠集团、马上消费金融、信柏科技联合提供
@@ -119,40 +89,30 @@
       </div>
     </div>
   </main>
-  <!-- <div class="box-1 bdb1px">
-	<div class="hd bdb1px"><h3 class="bq"><i class="icon-xqhk"></i>下期还款</h3></div>
-	<div class="bd">
-		<ul class="account-grid text-center">
-			<li ><div class="">待还金额（元）</div><span class=""> </span></li>
-			<li ><div class="">还款截止日期</div><span class="lastStmtDate"> </span></li>
-		</ul>
-	</div>
-</div> -->
+  
   <footer>
     <div class="index-nav">
-      <ul class="">
-        <li class="icon-icon active"><a href="javascript:void(0)"><i class="icon-1"></i><span class="">账户</span></a></li>
-        <li class="icon-icon"><a href="credit/credit_index.html?v_1502854514867"><i class="icon-2"></i><span class="">信用</span></a></li>
-        <li class="icon-icon"><a href="consume/consume_index.html?v_1502854514867"><i class="icon-3"></i><span class="">消费</span></a></li>
-        <li class="icon-icon"><a href="mall/mall_index.html?v_1502854514867"><i class="icon-4"></i><span class="">商城</span></a></li>
+      <ul>
+        <li class="icon-icon active"><a href="javascript:void(0)"><i class="icon-1"></i><span>账户</span></a></li>
+        <li class="icon-icon"><a href="credit/credit_index.html?v_1502855519725"><i class="icon-2"></i><span>信用</span></a></li>
+        <li class="icon-icon"><a href="consume/consume_index.html?v_1502855519725"><i class="icon-3"></i><span>消费</span></a></li>
+        <li class="icon-icon"><a href="mall/mall_index.html?v_1502855519725"><i class="icon-4"></i><span>商城</span></a></li>
       </ul>
     </div>
   </footer>
 </body>
 
-<!-- <scr ipt src='js/lib/zepto/zepto.min.js'></script> -->
-<!-- <sc ript src='js/lib/zepto.cookie/zepto.cookie.min.js'></script> -->
-<script src='js/lib/jquery/3.1.1/jquery.min.js'></script>
-<script src='js/lib/jquery.cookie/jquery.cookie.js'></script>
-<script src='js/lib/vue/vue.min.js'></script>
-<script src='js/lib/vue/vue-resource.min.js'></script>
-<script src='js/common/dictionary.js'></script>
-<script src='js/common/common.js'></script>
-<script src='js/common/main.js?v_1502854514867'></script>
-  <script>
-  // 获得结果信息
-  </script>
-  <!-- <sc ript src="js/loan/scale_slip.js"></script> -->
+
+
+<script src="js/lib/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/lib/jquery.cookie/jquery.cookie.js"></script>
+<script src="js/lib/vue/vue.min.js"></script>
+<script src="js/lib/vue/vue-resource.min.js"></script>
+<script src="js/common/dictionary.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/common/main.js?v_1502855519725"></script>
+  <script></script>
+  
   <script src="js/loan/index.js"></script>
 
 </html>

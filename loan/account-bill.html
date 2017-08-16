@@ -2,153 +2,106 @@
 <html>
 <head>
 	<title>待还账单</title>
-    <!-- <base href="/test/"/> -->
-<base href="/bulid/"/>
+    
+<base href="/bulid/">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<!-- 尺寸的设置以及页面是否允许缩放 -->
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
-<!-- 删除苹果默认的工具栏和菜单栏 -->
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-<!-- 忽略页面中的数字识别为电话,忽略email识别 -->
-<meta name="format-detection" content="telephone=no, email=no"/>
-<!-- 启用360浏览器的极速模式(webkit) -->
-<meta name="renderer" content="webkit"/>
-<!-- 解决http https混合加载的安全性问题 -->
-<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<meta name="format-detection" content="telephone=no, email=no">
+
+<meta name="renderer" content="webkit">
+
+<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
 
 <link rel="shortcut icon" href="favicon.ico">
-<link rel="stylesheet" href="css/base.css"/>
-<link rel="stylesheet" href="css/style.css?v_1502854514867"/>
-<script>
-	// 项目根路径
-	// window._appPath = "http://210.14.129.41:8080/";
-	window._appPath = "/msxfInterface/";
-	// window._sitePath = "/test/"; // 测试
-	window._sitePath = "/bulid/"; // 测试
-</script>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/style.css?v_1502855519725">
+<script>window._appPath="/msxfInterface/",window._sitePath="/bulid/"</script>
 
-	<link rel="stylesheet" href="css/scale_slip.css"/>
+	<link rel="stylesheet" href="css/scale_slip.css">
 </head>
-<body class="loan-fill" style="background: #e4e4e4;">
+<body class="loan-fill" style="background:#e4e4e4">
 <div class="top-loan">
 	<div class="top-header">
-		<a href="loan/index.html?v_1502854514867" class="return_a"> </a>
+		<a href="loan/index.html?v_1502855519725" class="return_a"> </a>
 		待还账单
-		<!-- <a href="javascript:;" class="top-zhifu">
-			支付
-		</a> -->
+		
 	</div>
 </div>
 
 <div class="box-2">
-	<ul class="" id="app" v-cloak>
-		<li class=" " ><div class="hd">已出账单<span class="money">{{ (+billAmt).toFixed(2) }}</span><i class=" "></i></div>
-			<div class="bd" v-on:click="appliFn" ><!-- pmtDueDate：还款日
-	stmtDate：账单日
-	paidAmt：已还金额
-	currStmtAmt：账单金额
-	shdRepayAmt：应还金额 -->
-	<!-- dealDate	交易日期	true	String	
-dealAmount	交易金额	true	double	
-dealDesc	交易信息	true	String	
-refNbr	交易参考号	true	String	
-acqAddress	受理机构名称地址	true	String -->
+	<ul id="app" v-cloak>
+		<li><div class="hd">已出账单<span class="money">{{ (+billAmt).toFixed(2) }}</span><i></i></div>
+			<div class="bd" v-on:click="appliFn">
+	
 				<div class="text-center"><div v-on:click="repayBtnFn" class="btn">还款</div></div>
-				<div class="item" v-for="item in billhis"   v-bind:key="item.ref_nbr">
+				<div class="item" v-for="item in billhis" v-bind:key="item.ref_nbr">
 					<div class="hd-line">
-						<div class=" " data-tit="账单日">{{ item.dealDate }}&nbsp;</div>
-						<div class=" ">订单号: <span  class="" >{{ item.requestId||'无' }}</span></div>
+						<div data-tit="账单日">{{ item.dealDate }}&nbsp;</div>
+						<div>订单号: <span>{{ item.requestId||'无' }}</span></div>
 					</div>
 					<div class="bd-line">
-						<div class="">
-							<!-- <span class="" v-if="item.loanInd == 'N'">分期:未分期</span> -->
-							<!-- <span class="" v-if="item.loanInd == 'Y'" v-html="item.txn_desc"> </span> -->
-							<span class=""  v-html="item.dealDesc"> </span>
+						<div>
+							
+							
+							<span v-html="item.dealDesc"> </span>
 						</div> 
-						<div class=" ">金额: <span class="color-red" >¥ {{ (db_cr_ind[item.dbCrInd]||'') + (+item.dealAmount).toFixed(2) }}</span></div>
+						<div>金额: <span class="color-red">¥ {{ (db_cr_ind[item.dbCrInd]||'') + (+item.dealAmount).toFixed(2) }}</span></div>
 					</div>
 				</div>
 				
 			</div>
 		</li>
-		<li class="active " id="app2"><div class="hd">未出账单<span class="money" >{{ (+shdRepayAmt).toFixed(2) }}</span><i class=" "></i></div>
+		<li class="active" id="app2"><div class="hd">未出账单<span class="money">{{ (+shdRepayAmt).toFixed(2) }}</span><i></i></div>
 
 			<div class="bd" v-on:click="appliFn()">
-				<!-- <div class="item notfq" data-id="123">
-					<div class="hd-line">
-						<div class="l">2016.09.09</div>
-						<div class="r">订单号: <span class="">20030204902</span></div>
-					</div>
-					<div class="bd-line">
-						<div class="l">分期数量:未分期</div>
-						<div class="r">消费金额: <span class="color-red">¥ 200000.00</span></div>
-					</div>
-				</div> -->
+				
 				
 
 
-	<!-- dealDate	交易时间	true	String	
-dealAmount	交易金额	true	BigDecimal	
-dealDesc	交易信息	true	String	
-postFlg	是否入账（Y 是 N 否）	true	String	Y
-loanInd	是否已分期标识	true	String	
-requestId	交易参考号	true	String	
-dbCrInd	借贷标识（C 贷记 D 借记）	true	String	
-acqAddress	受理机构名称地址	true	String -->
-				<div class="item fq" v-for="item in bill" data-id="item.requestId" v-on:click="billFn(item.requestId, item.loanInd, item.dealAmount, item.postFlg, item.consPlanInd)" v-bind:key="item.requestId" >
+	
+				<div class="item fq" v-for="item in bill" data-id="item.requestId" v-on:click="billFn(item.requestId, item.loanInd, item.dealAmount, item.postFlg, item.consPlanInd)" v-bind:key="item.requestId">
 					<div class="hd-line">
-						<div class=" ">{{ item.dealDate }}</div>
-						<div class=" ">订单号: <span class="">{{ item.requestId }}</span></div>
+						<div>{{ item.dealDate }}</div>
+						<div>订单号: <span>{{ item.requestId }}</span></div>
 					</div>
 					<div class="bd-line">
-						<!-- <div class=" ">已还金额:{{ item.paidAmt }}</div> -->
-						<div class="" v-if="item.loanInd != ''">分期:
-							<span class="" v-if="item.loanInd == 'N'">未分期</span>
-							<span class="" v-if="item.loanInd == 'Y'">已分期</span>
+						
+						<div v-if="item.loanInd != ''">分期:
+							<span v-if="item.loanInd == 'N'">未分期</span>
+							<span v-if="item.loanInd == 'Y'">已分期</span>
 						</div>
-						<div class="" v-if="item.loanInd == ''">{{ item.dealDesc }}
+						<div v-if="item.loanInd == ''">{{ item.dealDesc }}
 						</div>
-						<!-- <div class=" ">分期数量:{{ item.txn_desc }}</div> -->
-						<div class=" ">消费金额: <span class="color-red">¥ {{ db_cr_ind[item.dbCrInd] + (+item.dealAmount).toFixed(2) }}</span></div>
+						
+						<div>消费金额: <span class="color-red">¥ {{ db_cr_ind[item.dbCrInd] + (+item.dealAmount).toFixed(2) }}</span></div>
 					</div>
 				</div>
-				<!-- <div class="item fq" data-id="789">
-					<div class="hd-line">
-						<div class="l">2016.09.09</div>
-						<div class="r">订单号: <span class="">20030204902</span></div>
-					</div>
-					<div class="bd-line">
-						<div class="l">分期数量:12期</div>
-						<div class="r">消费金额: <span class="color-red">¥ 200000.00</span></div>
-					</div>
-				</div> -->
+				
 				
 			</div>
 		</li>
 	</ul>
 </div>
-<style>
-	.box-2 .item{padding: .4rem 0 1rem 1.2rem}
-</style>
+<style>.box-2 .item{padding:.4rem 0 1rem 1.2rem}</style>
  
 </body>
 
-<!-- <scr ipt src='js/lib/zepto/zepto.min.js'></script> -->
-<!-- <sc ript src='js/lib/zepto.cookie/zepto.cookie.min.js'></script> -->
-<script src='js/lib/jquery/3.1.1/jquery.min.js'></script>
-<script src='js/lib/jquery.cookie/jquery.cookie.js'></script>
-<script src='js/lib/vue/vue.min.js'></script>
-<script src='js/lib/vue/vue-resource.min.js'></script>
-<script src='js/common/dictionary.js'></script>
-<script src='js/common/common.js'></script>
-<script src='js/common/main.js?v_1502854514867'></script>
-<script>
-	// 获得结果信息 
-</script>
+
+
+<script src="js/lib/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/lib/jquery.cookie/jquery.cookie.js"></script>
+<script src="js/lib/vue/vue.min.js"></script>
+<script src="js/lib/vue/vue-resource.min.js"></script>
+<script src="js/common/dictionary.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/common/main.js?v_1502855519725"></script>
+<script></script>
 <script src="js/loan/account-bill.js"></script>
 
 

@@ -3,106 +3,88 @@
 
 <head>
   <title>账单</title>
-  <!-- <base href="/test/"/> -->
-<base href="/bulid/"/>
+  
+<base href="/bulid/">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<!-- 尺寸的设置以及页面是否允许缩放 -->
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
-<!-- 删除苹果默认的工具栏和菜单栏 -->
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-<!-- 忽略页面中的数字识别为电话,忽略email识别 -->
-<meta name="format-detection" content="telephone=no, email=no"/>
-<!-- 启用360浏览器的极速模式(webkit) -->
-<meta name="renderer" content="webkit"/>
-<!-- 解决http https混合加载的安全性问题 -->
-<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<meta name="format-detection" content="telephone=no, email=no">
+
+<meta name="renderer" content="webkit">
+
+<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
 
 <link rel="shortcut icon" href="favicon.ico">
-<link rel="stylesheet" href="css/base.css"/>
-<link rel="stylesheet" href="css/style.css?v_1502854514867"/>
-<script>
-	// 项目根路径
-	// window._appPath = "http://210.14.129.41:8080/";
-	window._appPath = "/msxfInterface/";
-	// window._sitePath = "/test/"; // 测试
-	window._sitePath = "/bulid/"; // 测试
-</script>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/style.css?v_1502855519725">
+<script>window._appPath="/msxfInterface/",window._sitePath="/bulid/"</script>
 
-    <link rel="stylesheet" href="css/scale_slip.css" />
+    <link rel="stylesheet" href="css/scale_slip.css">
 </head>
 
-<body class="fill-detail" style="background: #e4e4e4;">
+<body class="fill-detail" style="background:#e4e4e4">
   <div class="top-loan">
     <div class="top-header">
       <a href="javascript:history.back(-1)" class="return_a"> </a>
       账单
-      <!-- <a href="javascript:;" class="top-zhifu">
-			支付
-		</a> -->
+      
     </div>
   </div>
   <div class="main" v-cloak>
-    <!-- <div class="" style="padding:.4rem;"></div> -->
-    <div class="box-4 ">
+    
+    <div class="box-4">
       <div class="hd">
-        <ul class="">
-          <li class="">
-            <div >订单日期：{{ date }}</div>
+        <ul>
+          <li>
+            <div>订单日期：{{ date }}</div>
           </li>
-          <li class="">
+          <li>
             <div>订单号: <span class="color-blue">{{ refNo }}</span></div>
           </li>
-          <li class="">
+          <li>
             <div class="l">分期数量:{{ term }}期</div>
-            <!-- <div class="r">利率: <span class="color-orange">{{ rate }}</span> %</div> -->
+            
           </li>
-          <li class="">分期金额: <span class="color-orange">¥ {{ (+amt).toFixed(2) }}</span></li>
+          <li>分期金额: <span class="color-orange">¥ {{ (+amt).toFixed(2) }}</span></li>
         </ul>
       </div>
-      <div class="bd" style=" padding-bottom: 1.8rem;">
-        <ul class="">
-          <li class=""><i class="fqbj"></i>分期本金: <span class="color-red">¥ {{ (+amt).toFixed(2) }}</span></li>
-          <li class=""><i class="fqxf"></i>分期息费: <span class="color-red">¥ {{ (+fee).toFixed(2) }}</span></li>
-          <li class=""><i class="hjyh"></i>合计应还: <span class="color-red">¥ {{ ((+amt) + (+fee) ).toFixed(2)  }}</span></li>
+      <div class="bd" style="padding-bottom:1.8rem">
+        <ul>
+          <li><i class="fqbj"></i>分期本金: <span class="color-red">¥ {{ (+amt).toFixed(2) }}</span></li>
+          <li><i class="fqxf"></i>分期息费: <span class="color-red">¥ {{ (+fee).toFixed(2) }}</span></li>
+          <li><i class="hjyh"></i>合计应还: <span class="color-red">¥ {{ ((+amt) + (+fee) ).toFixed(2)  }}</span></li>
         </ul>
       </div>
     </div>
     <div class="box-5">
       <div class="hd"></div>
       <div class="bd">
-        <ul class="">
-          <!-- <li class="" v-for="n in list" v-on:click="clickLiFn(n.amt,n.term,n.fee)"><span class="l">{{ n.term }}期</span><span class="m color-red">￥ {{ n.amt }}</span></span></li> -->
-          <!-- <li class=""><span class="l">2期</span><span class="m color-red">18000.00</span><span class="r">05.08未还<i></i></span></li>
-          <li class=""><span class="l">3期</span><span class="m color-red">18000.00</span><span class="r">05.08未还<i></i></span></li> -->
+        <ul>
+          
+          
         </ul>
       </div>
     </div>
-    <!-- <div class="agreement-box">
-      <label for="agreement-radio">
-      <input type="checkbox" id="agreement-radio" data-rule="required" data-rule-msg="个人账单分期申请协议">
-      <label for="agreement-radio" class="agreement-icon"></label>
-      <span> 我已阅读并同意</span></label><a href="javascript:;" id="loan-agreement" class="blue">《个人账单分期申请协议》</a>
-    </div> -->
+    
     <span href="" v-on:click="submitFn()" class="btn-view btn submit">确认分期</span>
   </div>
 </body>
 
-<!-- <scr ipt src='js/lib/zepto/zepto.min.js'></script> -->
-<!-- <sc ript src='js/lib/zepto.cookie/zepto.cookie.min.js'></script> -->
-<script src='js/lib/jquery/3.1.1/jquery.min.js'></script>
-<script src='js/lib/jquery.cookie/jquery.cookie.js'></script>
-<script src='js/lib/vue/vue.min.js'></script>
-<script src='js/lib/vue/vue-resource.min.js'></script>
-<script src='js/common/dictionary.js'></script>
-<script src='js/common/common.js'></script>
-<script src='js/common/main.js?v_1502854514867'></script>
-  <script>
-  // 获得结果信息
-  </script>
-  <script src="js/loan/instalment.js "></script>
+
+
+<script src="js/lib/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/lib/jquery.cookie/jquery.cookie.js"></script>
+<script src="js/lib/vue/vue.min.js"></script>
+<script src="js/lib/vue/vue-resource.min.js"></script>
+<script src="js/common/dictionary.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/common/main.js?v_1502855519725"></script>
+  <script></script>
+  <script src="js/loan/instalment.js"></script>
 
 </html>

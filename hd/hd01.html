@@ -3,47 +3,31 @@
 
 <head>
   <title>活动</title>
-  <!-- <base href="/test/"/> -->
-<base href="/bulid/"/>
+  
+<base href="/bulid/">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<!-- 尺寸的设置以及页面是否允许缩放 -->
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
-<!-- 删除苹果默认的工具栏和菜单栏 -->
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-<!-- 忽略页面中的数字识别为电话,忽略email识别 -->
-<meta name="format-detection" content="telephone=no, email=no"/>
-<!-- 启用360浏览器的极速模式(webkit) -->
-<meta name="renderer" content="webkit"/>
-<!-- 解决http https混合加载的安全性问题 -->
-<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<meta name="format-detection" content="telephone=no, email=no">
+
+<meta name="renderer" content="webkit">
+
+<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
 
 <link rel="shortcut icon" href="favicon.ico">
-<link rel="stylesheet" href="css/base.css"/>
-<link rel="stylesheet" href="css/style.css?v_1502854514867"/>
-<script>
-	// 项目根路径
-	// window._appPath = "http://210.14.129.41:8080/";
-	window._appPath = "/msxfInterface/";
-	// window._sitePath = "/test/"; // 测试
-	window._sitePath = "/bulid/"; // 测试
-</script>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/style.css?v_1502855519725">
+<script>window._appPath="/msxfInterface/",window._sitePath="/bulid/"</script>
 
-  <style>
-  .img img{display: block}
-  .btn-box{position: relative;}
-  .btn-box .btn-abs{position: absolute;width:100%;text-align: center; }
-  .btn-box .btn-abs img{width: 80%;display: inline-block; }
-  .btn-box .btn1{top:2%; }
-  .btn-box .btn2{top:30%;  }
-
-  </style>
+  <style>.img img{display:block}.btn-box{position:relative}.btn-box .btn-abs{position:absolute;width:100%;text-align:center}.btn-box .btn-abs img{width:80%;display:inline-block}.btn-box .btn1{top:2%}.btn-box .btn2{top:30%}</style>
 </head>
 
-<body class=" " id="" style="background: #e4e4e4;padding-bottom: 0">
+<body style="background:#e4e4e4;padding-bottom:0">
   <div>
     <div class="img"><img src="./img/hd/hd_01.jpg" width="100%" alt=""></div>
     <div class="img"><img src="./img/hd/hd_02.jpg" width="100%" alt=""></div>
@@ -58,15 +42,8 @@
  
 </body> 
 
-<script src='js/lib/jquery/3.1.1/jquery.min.js'></script>
-<script src='js/lib/jquery.cookie/jquery.cookie.js'></script>
-  <script>
-  // 获得结果信息
-  
-  $('.btn2').click(function(event) {
-    location.href='http://xfjr-jiahui.symboltech.com:7886/bulid/?openid='+$.cookie('openId');
-    return false;
-  });
-  </script>
+<script src="js/lib/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/lib/jquery.cookie/jquery.cookie.js"></script>
+  <script>$(".btn2").click(function(o){return location.href="http://xfjr-jiahui.symboltech.com:7886/bulid/?openid="+$.cookie("openId"),!1})</script>
 
 </html>

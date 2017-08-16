@@ -2,45 +2,35 @@
 <html>
 <head>
 	<title>还款</title>
-    <!-- <base href="/test/"/> -->
-<base href="/bulid/"/>
+    
+<base href="/bulid/">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<!-- 尺寸的设置以及页面是否允许缩放 -->
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
-<!-- 删除苹果默认的工具栏和菜单栏 -->
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-<!-- 忽略页面中的数字识别为电话,忽略email识别 -->
-<meta name="format-detection" content="telephone=no, email=no"/>
-<!-- 启用360浏览器的极速模式(webkit) -->
-<meta name="renderer" content="webkit"/>
-<!-- 解决http https混合加载的安全性问题 -->
-<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<meta name="format-detection" content="telephone=no, email=no">
+
+<meta name="renderer" content="webkit">
+
+<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
 
 <link rel="shortcut icon" href="favicon.ico">
-<link rel="stylesheet" href="css/base.css"/>
-<link rel="stylesheet" href="css/style.css?v_1502851861933"/>
-<script>
-	// 项目根路径
-	// window._appPath = "http://210.14.129.41:8080/";
-	window._appPath = "/msxfInterface/";
-	// window._sitePath = "/test/"; // 测试
-	window._sitePath = "/bulid/"; // 测试
-</script>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/style.css?v_1502855519725">
+<script>window._appPath="/msxfInterface/",window._sitePath="/bulid/"</script>
 
-	<link rel="stylesheet" href="css/scale_slip.css"/>
+	<link rel="stylesheet" href="css/scale_slip.css">
 </head>
-<body class="loan-fill" style="background: #e4e4e4;">
+<body class="loan-fill" style="background:#e4e4e4">
 <div class="top-loan">
 	<div class="top-header">
-		<a href="loan/index.html?v_1502851861933" class="return_a"> </a>
+		<a href="loan/index.html?v_1502855519725" class="return_a"> </a>
 		还款
-		<!-- <a href="javascript:;" class="top-zhifu">
-			支付
-		</a> -->
+		
 	</div>
 </div>
  
@@ -54,13 +44,11 @@
 </div>
 <div class="box-18">
 	<ul>
-		<li class=" ">
+		<li>
 			<div class="item active">
 				<div class="l">支付方式</div>
 				<div class="r text-right icon-icon">
-					<!-- <span class="">招商银行储蓄卡**999</span>
-					<span class="">单笔限额3万，单日限额3万</span>
-					<i></i> -->
+					
 				</div>
 			</div>
 			<div class="item2">
@@ -68,32 +56,27 @@
 					<img src="../img/banks/cmbc.png" alt="">
 				</div>
 				<div class="r text-right icon-icon">
-					<span class="">招商银行储蓄卡**999</span>
-					<span class="">单笔限额3万，单日限额3万</span>
+					<span>招商银行储蓄卡**999</span>
+					<span>单笔限额3万，单日限额3万</span>
 				</div>
 			</div>
 		</li>
 	</ul>
 </div>
-<button class="btn-view btn ">确认还款</button>
+<button class="btn-view btn">确认还款</button>
  
 </body>
 
-<!-- <scr ipt src='js/lib/zepto/zepto.min.js'></script> -->
-<!-- <sc ript src='js/lib/zepto.cookie/zepto.cookie.min.js'></script> -->
-<script src='js/lib/jquery/3.1.1/jquery.min.js'></script>
-<script src='js/lib/jquery.cookie/jquery.cookie.js'></script>
-<script src='js/lib/vue/vue.min.js'></script>
-<script src='js/lib/vue/vue-resource.min.js'></script>
-<script src='js/common/dictionary.js'></script>
-<script src='js/common/common.js'></script>
-<script src='js/common/main.js?v_1502851861933'></script>
-<script>
-	$('.btn').click(function(event) {
-		/* Act on the event */
-		location.href='/repay/repay_success.html'
-	});
-</script>
+
+
+<script src="js/lib/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/lib/jquery.cookie/jquery.cookie.js"></script>
+<script src="js/lib/vue/vue.min.js"></script>
+<script src="js/lib/vue/vue-resource.min.js"></script>
+<script src="js/common/dictionary.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/common/main.js?v_1502855519725"></script>
+<script>$(".btn").click(function(c){location.href="/repay/repay_success.html"})</script>
 <script src="js/loan/account-bill.js"></script>
 
 

@@ -2,51 +2,41 @@
 <html>
 <head>
 	<title>实名认证</title>
-	<!-- <base href="/test/"/> -->
-<base href="/bulid/"/>
+	
+<base href="/bulid/">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<!-- 尺寸的设置以及页面是否允许缩放 -->
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
-<!-- 删除苹果默认的工具栏和菜单栏 -->
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-<!-- 忽略页面中的数字识别为电话,忽略email识别 -->
-<meta name="format-detection" content="telephone=no, email=no"/>
-<!-- 启用360浏览器的极速模式(webkit) -->
-<meta name="renderer" content="webkit"/>
-<!-- 解决http https混合加载的安全性问题 -->
-<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<meta name="format-detection" content="telephone=no, email=no">
+
+<meta name="renderer" content="webkit">
+
+<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
 
 <link rel="shortcut icon" href="favicon.ico">
-<link rel="stylesheet" href="css/base.css"/>
-<link rel="stylesheet" href="css/style.css?v_1502854514867"/>
-<script>
-	// 项目根路径
-	// window._appPath = "http://210.14.129.41:8080/";
-	window._appPath = "/msxfInterface/";
-	// window._sitePath = "/test/"; // 测试
-	window._sitePath = "/bulid/"; // 测试
-</script>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/style.css?v_1502855519725">
+<script>window._appPath="/msxfInterface/",window._sitePath="/bulid/"</script>
 
 
 </head>
-<body style="background: #e4e4e4;">
+<body style="background:#e4e4e4">
 <header>
-	<!-- <a href="javascript:history.back(-1)" class="return_a">返回</a>实名认证 -->
+	
 <div class="top-header">
 		<a href="javascript:history.back(-1)" class="return_a"> </a>
 		实名认证
-		<!-- <a href="javascript:;" class="top-zhifu">
-			支付
-		</a> -->
+		
 	</div>
 </header>
 <form action="" method="post" class="user-info-form" id="user-info-form">
-	<!-- 第一步 begin -->
-	<div class="first-step ">
+	
+	<div class="first-step">
 
 		<ul class="steps"> 
             <li class="step steping"><i class="step-icon">1</i><label>提交资料</label></li>
@@ -61,7 +51,7 @@
 				真实姓名
 			</div>
 			<div class="form-controls">
-				<input type="text" name="real_name" disabled="disabled" value="敬业福" class="text name_text text-right"   />
+				<input type="text" name="real_name" disabled="disabled" value="敬业福" class="text name_text text-right">
 			</div>
 		</div>
 		<div class="form-row">
@@ -69,7 +59,7 @@
 				身份证号
 			</div>
 			<div class="form-controls">
-				<input type="text" name="number" disabled="disabled" value="230702197311110713" class="text card_text text-right"  />
+				<input type="text" name="number" disabled="disabled" value="230702197311110713" class="text card_text text-right">
 			</div>
 		</div>
 		<div class="id-card-box">
@@ -81,58 +71,54 @@
 					<i></i>
 				</div>
 				<div class="table">
-				<ul class="">
+				<ul>
 					<li class="item">
 
-						<img src="img/jh/picture_3.png" alt="" class="">
+						<img src="img/jh/picture_3.png" alt="">
 					</li>
 					<li class="item">
-						<img src="img/jh/picture_2.png" alt="" class="">
+						<img src="img/jh/picture_2.png" alt="">
 					</li>
 					<li class="item">
-						<img src="img/jh/picture_17.png" alt="" class="">
+						<img src="img/jh/picture_17.png" alt="">
 					</li>
 				</ul>
-				<ul class="">
+				<ul>
 					<li class="item">
-						<span class="">上传身份证<br>正面</span>
+						<span>上传身份证<br>正面</span>
 					</li>
 					<li class="item">
-						<span class="">上传身份证<br>背面</span>
+						<span>上传身份证<br>背面</span>
 					</li>
 					<li class="item">
-						<span class="">上传手持身<br>份证正面</span>
+						<span>上传手持身<br>份证正面</span>
 					</li>
 					
 				</ul></div>
 			</div>
 			
 		</div> 
-		<!-- <p class="yzm-fail">
-			<a href="javascript:;">收不到验证码?</a>
-		</p> -->
-		<!-- <p class="text_version">* 马上消费金融持有银监会消费金融牌照，在您申请过程中会依法查询您的央行征信记录。</p> -->
+		
+		
 		<button class="btn-next btn" type="button" id="next">
 			确认提交
 		</button>
 	</div>
-	<!-- 第一步 end -->
+	
 </form>
 
 </body>
-<script>
-	// hrel='< %=hrel';
-</script>
+<script></script>
 
-<!-- <scr ipt src='js/lib/zepto/zepto.min.js'></script> -->
-<!-- <sc ript src='js/lib/zepto.cookie/zepto.cookie.min.js'></script> -->
-<script src='js/lib/jquery/3.1.1/jquery.min.js'></script>
-<script src='js/lib/jquery.cookie/jquery.cookie.js'></script>
-<script src='js/lib/vue/vue.min.js'></script>
-<script src='js/lib/vue/vue-resource.min.js'></script>
-<script src='js/common/dictionary.js'></script>
-<script src='js/common/common.js'></script>
-<script src='js/common/main.js?v_1502854514867'></script>
+
+
+<script src="js/lib/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/lib/jquery.cookie/jquery.cookie.js"></script>
+<script src="js/lib/vue/vue.min.js"></script>
+<script src="js/lib/vue/vue-resource.min.js"></script>
+<script src="js/common/dictionary.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/common/main.js?v_1502855519725"></script>
 <script src="js/credit/credit_attestation.js"></script>
 
 </html>

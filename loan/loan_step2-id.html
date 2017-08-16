@@ -3,65 +3,28 @@
 
 <head>
     <title>身份认证</title>
-    <!-- <base href="/test/"/> -->
-<base href="/bulid/"/>
+    
+<base href="/bulid/">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<!-- 尺寸的设置以及页面是否允许缩放 -->
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
-<!-- 删除苹果默认的工具栏和菜单栏 -->
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-<!-- 忽略页面中的数字识别为电话,忽略email识别 -->
-<meta name="format-detection" content="telephone=no, email=no"/>
-<!-- 启用360浏览器的极速模式(webkit) -->
-<meta name="renderer" content="webkit"/>
-<!-- 解决http https混合加载的安全性问题 -->
-<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<meta name="format-detection" content="telephone=no, email=no">
+
+<meta name="renderer" content="webkit">
+
+<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
 
 <link rel="shortcut icon" href="favicon.ico">
-<link rel="stylesheet" href="css/base.css"/>
-<link rel="stylesheet" href="css/style.css?v_1502851861933"/>
-<script>
-	// 项目根路径
-	// window._appPath = "http://210.14.129.41:8080/";
-	window._appPath = "/msxfInterface/";
-	// window._sitePath = "/test/"; // 测试
-	window._sitePath = "/bulid/"; // 测试
-</script>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/style.css?v_1502855519725">
+<script>window._appPath="/msxfInterface/",window._sitePath="/bulid/"</script>
 
-    <style>
-    /* 身份证 */
-
-	.id_head{clear:both;margin-bottom:.75rem;color:#399ce7;font-size:.8125rem;text-align:center;padding-top:1.25rem;border-bottom:1rem solid #e1e1e1}
-	.id_face,.id_side,.id_hand,.id_sign{display:block;width:60%;position:relative;margin:0 auto;text-align: center;}
-	.id_hand{margin:0 auto;float:none;}
-	.id_face{margin-top:1rem;}
-	.id_side{margin-top:1rem;}
-	.id_face img,.id_side img{width:100%;height: 6.5rem;opacity:0.01;}
-	.id_face p,.id_side p{color:#626262;font-size:.8125rem;text-align:center;line-height:1;margin:.825rem 0;}
-	.id_face input,.id_side input{position:absolute;width:100%;height:100%;top:0;left:0; bottom: 0;opacity:0.01;}
-	.id_left,.id_right{display:block;float:left;width:41%;position:relative;margin-left:6%;}
-	.id_left img,.id_right img{width:100%;height:6rem;}
-	.id_left p,.id_right p{color:#626262;font-size:.8125rem;text-align:center;line-height:1;margin-top:.625rem;}
-	.id_left input,.id_right input{position:absolute;width:100%;height:100%;top:0;left:0;opacity:0}
-
-	/*.id_hand{width:41%;display:block;margin:0 auto;position:relative;}*/
-	.id_hand img{width:100%;height:6rem;}
-	.id_hand input{position:absolute;width:100%;height:100%;top:0;left:0;opacity:0}
-	.ll{width:100%;}
-	.ll img{width:100%;margin-top:1rem;}
-	.relation{line-height:1;padding-top:1.062rem;}
-	.relation select{margin-top:0;padding-right:0}
-    .id_hand .loading-img,.id_face .loading-img,.id_side .loading-img{ width: 5rem;
-    height: auto;
-    position: absolute;
-    left: 50%;
-    top: 0.8rem;z-index: -1;
-    margin-left: -2.5rem;opacity: 1}
-    </style>
+    <style>.id_head{clear:both;margin-bottom:.75rem;color:#399ce7;font-size:.8125rem;text-align:center;padding-top:1.25rem;border-bottom:1rem solid #e1e1e1}.id_face,.id_hand,.id_side,.id_sign{display:block;width:60%;position:relative;margin:0 auto;text-align:center}.id_hand{margin:0 auto;float:none}.id_face{margin-top:1rem}.id_side{margin-top:1rem}.id_face img,.id_side img{width:100%;height:6.5rem;opacity:.01}.id_face p,.id_side p{color:#626262;font-size:.8125rem;text-align:center;line-height:1;margin:.825rem 0}.id_face input,.id_side input{position:absolute;width:100%;height:100%;top:0;left:0;bottom:0;opacity:.01}.id_left,.id_right{display:block;float:left;width:41%;position:relative;margin-left:6%}.id_left img,.id_right img{width:100%;height:6rem}.id_left p,.id_right p{color:#626262;font-size:.8125rem;text-align:center;line-height:1;margin-top:.625rem}.id_left input,.id_right input{position:absolute;width:100%;height:100%;top:0;left:0;opacity:0}.id_hand img{width:100%;height:6rem}.id_hand input{position:absolute;width:100%;height:100%;top:0;left:0;opacity:0}.ll{width:100%}.ll img{width:100%;margin-top:1rem}.relation{line-height:1;padding-top:1.062rem}.relation select{margin-top:0;padding-right:0}.id_face .loading-img,.id_hand .loading-img,.id_side .loading-img{width:5rem;height:auto;position:absolute;left:50%;top:.8rem;z-index:-1;margin-left:-2.5rem;opacity:1}</style>
     
 <script src="js/loan/exif.js"></script>
 <script src="js/loan/jpeg_encoder_basic.js"></script>
@@ -69,26 +32,20 @@
 <script src="js/loan/uploadimage2.js"></script>
 </head>
 
-<body style="background: #fff;">
-    <header><!-- <a href="javascript:history.back(-1)" class="return_a">返回</a> -->身份认证</header>
+<body style="background:#fff">
+    <header>身份认证</header>
     <form action="" method="post" class="user-info-form" id="user-info-form">
-        <!-- 第三步 begin -->
+        
         <div class="three-step region-box">
-            <!-- <ul class="steps"> 
-            <li class="step"><i class="step-icon">1</i><label>基本信息</label></li>
-			<li class="step steping"><i class="step-icon">2</i><label>身份认证</label></li>
-			<li class="step"><i class="step-icon">3</i><label>审批成功</label></li>
-        	</ul> -->
+            
             <div style="display:none">
-                <img alt="preview" src="" width="400" id="myImage" />
+                <img alt="preview" src="" width="400" id="myImage">
             </div>
-            <!-- <div class="id_head">
-				请上传身份证正反面照片
-			</div> -->
+            
             <div class="id_face">
                 <img src="img/lodding.gif" alt="" id="loadA" class="loading-img">
                 <img src="img/shenfenzheng-A.png" data-src="img/shenfenzheng-A.png" id="zsta">
-                <input type="file" name="file" id="Photo_A" accept="image/*" capture="camera" onchange="selectFileImage(this);">
+                <input type="file" name="file" id="Photo_A" accept="image/*" capture="camera" onchange="selectFileImage(this)">
                 <p>
                     身份证人像面
                 </p>
@@ -96,56 +53,47 @@
             <div class="id_side">
                 <img src="img/lodding.gif" alt="" id="loadA" class="loading-img">
                 <img src="img/shenfenzheng-B.png" data-src="img/shenfenzheng-B.png" id="zstb">
-                <input type="file" name="file" id="Photo_B" accept="image/*" capture="camera" onchange="selectFileImage(this);">
+                <input type="file" name="file" id="Photo_B" accept="image/*" capture="camera" onchange="selectFileImage(this)">
                 <p>
                     身份证国徽面
                 </p>
             </div>
 
-            <!-- <div class="id_head">
-				请上传手持身份证正面照片
-			</div> -->
+            
 			<div class="id_hand id_side">
                 <img src="img/lodding.gif" alt="" id="loadA" class="loading-img">
 				<img src="img/shouchishenfenzheng.png" data-src="img/shouchishenfenzheng.png" id="zstc">
-				<input type="file" name="file" id="Photo_C" accept="image/*" capture="camera" onchange="selectFileImage(this);">
+				<input type="file" name="file" id="Photo_C" accept="image/*" capture="camera" onchange="selectFileImage(this)">
 				<p>
 					上传手持身份证正面
 				</p>
 			</div>
-            <!-- <div class="id_head" style="color:#f30">*注：所有照片需横向拍摄，正向朝上上传！</div> -->
-            <!-- <div class="id_sign id_right">
-				<img src="img/id6.png" id="sign">
-				<p>
-					手写签名
-				</p>
-			</div> -->
-            <!-- <div class="id_head" style="color:#dd412a !important;">
-				注：请上传横向拍照照片且正向图片朝上
-			</div> -->
-            <!-- 注意事项 -->
+            
+            
+            
+            
             <div class="ll">
                 <img src="img/id5.png">
             </div>
-            <!-- <a href="javascript:;" v-on:click="submitFn()" class="btn-next btn">下一步</a> -->
+            
             <button class="btn-next btn" v-on:click="submitFn()" type="button" id="next">
                 提交
             </button>
         </div>
-        <!-- 第三步 end -->
+        
     </form>
 </body>
 
-<!-- <scr ipt src='js/lib/zepto/zepto.min.js'></script> -->
-<!-- <sc ript src='js/lib/zepto.cookie/zepto.cookie.min.js'></script> -->
-<script src='js/lib/jquery/3.1.1/jquery.min.js'></script>
-<script src='js/lib/jquery.cookie/jquery.cookie.js'></script>
-<script src='js/lib/vue/vue.min.js'></script>
-<script src='js/lib/vue/vue-resource.min.js'></script>
-<script src='js/common/dictionary.js'></script>
-<script src='js/common/common.js'></script>
-<script src='js/common/main.js?v_1502851861933'></script>
-<!-- <s cript src="data/city.data.js"></script> -->
+
+
+<script src="js/lib/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/lib/jquery.cookie/jquery.cookie.js"></script>
+<script src="js/lib/vue/vue.min.js"></script>
+<script src="js/lib/vue/vue-resource.min.js"></script>
+<script src="js/common/dictionary.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/common/main.js?v_1502855519725"></script>
+
 <script src="js/loan/step2-id2.js"></script>
 
 </html>

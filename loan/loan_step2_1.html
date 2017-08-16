@@ -3,40 +3,32 @@
 
 <head>
     <title>审批结果</title>
-    <!-- <base href="/test/"/> -->
-<base href="/bulid/"/>
+    
+<base href="/bulid/">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<!-- 尺寸的设置以及页面是否允许缩放 -->
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
-<!-- 删除苹果默认的工具栏和菜单栏 -->
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-<!-- 忽略页面中的数字识别为电话,忽略email识别 -->
-<meta name="format-detection" content="telephone=no, email=no"/>
-<!-- 启用360浏览器的极速模式(webkit) -->
-<meta name="renderer" content="webkit"/>
-<!-- 解决http https混合加载的安全性问题 -->
-<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<meta name="format-detection" content="telephone=no, email=no">
+
+<meta name="renderer" content="webkit">
+
+<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
 
 <link rel="shortcut icon" href="favicon.ico">
-<link rel="stylesheet" href="css/base.css"/>
-<link rel="stylesheet" href="css/style.css?v_1502851861933"/>
-<script>
-	// 项目根路径
-	// window._appPath = "http://210.14.129.41:8080/";
-	window._appPath = "/msxfInterface/";
-	// window._sitePath = "/test/"; // 测试
-	window._sitePath = "/bulid/"; // 测试
-</script>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/style.css?v_1502855519725">
+<script>window._appPath="/msxfInterface/",window._sitePath="/bulid/"</script>
 
 </head>
 
-<body style="background: #eee">
+<body style="background:#eee">
     <header>
-        <!-- <a href="javascript:history.back(-1)" class="return_a">返回</a> -->审批结果</header>
+        审批结果</header>
     <div class="main" v-cloak>
         <div class="success-box">
             <i class="icon-success"></i>
@@ -52,147 +44,15 @@
     </div>
 </body>
 
-<!-- <scr ipt src='js/lib/zepto/zepto.min.js'></script> -->
-<!-- <sc ript src='js/lib/zepto.cookie/zepto.cookie.min.js'></script> -->
-<script src='js/lib/jquery/3.1.1/jquery.min.js'></script>
-<script src='js/lib/jquery.cookie/jquery.cookie.js'></script>
-<script src='js/lib/vue/vue.min.js'></script>
-<script src='js/lib/vue/vue-resource.min.js'></script>
-<script src='js/common/dictionary.js'></script>
-<script src='js/common/common.js'></script>
-<script src='js/common/main.js?v_1502851861933'></script>
-    <script>
-    $(function() {
 
-        window.s = null;
-        window.n = 60;
-        // 
-        new Vue({
-            el: '.main',
-            data: {
-                p1:'审批中',
-                p2:'审核中请等待...',
-            },
-            methods: {
-                submitFn: function() {
 
-                    CommonUtil.redirectUrl('loan/loan_step3.html');// 去签合同
-                },
-                resetFn: function() {
-                    CommonUtil.redirectUrl('loan/loan_step2_1.html');// 刷新等待
-                },
-                getUserFn: function(){
-                    var data = {
-                        openId: $.cookie('openId')
-                    }
-                    var _this = this
-                    this.$http.post(window._appPath +'isuser.do',{
-                        openId: $.cookie('openId')
-                    },{
-                        emulateJSON:true
-                    }).then(function(res){
-                        console.log(res.data,111)
-                        var data = res.data;
-                        if(data.code == 0){
-
-                            if(!!data.data.isuser){
-
-                              // 0----注册成功
-                              // 1----注册成功,需要填密码
-                              // 2----注册后审批中 需要查询
-                              // 3----未注册需要注册
-                              // 4----注册成功，需要看协议，签合同
-                              // 5----不是佳慧会员
-                              var dateStr = (new Date()).getTime();
-                                if(data.data.isuser == '0'){
-                                    CommonUtil.redirectUrl('loan/index.html?v_'+dateStr);
-                                // }else if(data.data.isuser == '1'){
-                                //     CommonUtil.redirectUrl('pay/pay_password.html');
-
-                                }else if(data.data.isuser == '2'){
-                                    // CommonUtil.redirectUrl('loan/loan_step4.html');
-                                    clearTimeout(window.sss)
-                                    window.sss = setTimeout(function(){
-                                        _this.getUserFn()
-                                    },15000)
-
-                                    return false;
-
-                                }else if(data.data.isuser == '3'){
-                                    CommonUtil.redirectUrl('loan/loan_step1.html?v_'+dateStr);
-                                }else if(data.data.isuser == '7'){// 上传身份证
-                                    CommonUtil.redirectUrl('loan/loan_step2-id.html?v_'+dateStr);
-                                }else if(data.data.isuser == '6'){
-                                    CommonUtil.redirectUrl('loan/loan_loading.html?v_'+dateStr);
-                                }else if(data.data.isuser == '4'){//合同页
-                                    CommonUtil.redirectUrl('loan/loan_step3.html?v_'+dateStr);
-                                    // CommonUtil.redirectUrl('loan_success_contract.html');
-                                }else{
-
-                                }
-
-                                _this.p1 = '恭喜您信息审核成功！'
-                                _this.p2 = ''
-                                // _this.p2 = '<span class="color-red">' + (data.data.totalAmt).toFixed(2) + '</span>元'
-                                $('.btn-reset').addClass('hide')
-                                $('.btn-next').removeClass('hide')
-                            }
-
-                        }else if(data.code == 101){
-                            $.alert('系统内部异常')
-                        }else{
-                            $.alert(data.message)
-                        }
-                    },function(){})
-          
-                }
-
-            },
-            created: function() {
-                this.getUserFn()
-            }
-
-        });
-
-        
-//   new Vue({
-//       el:'.support-bank-box',
-//       data:{
-//         isuser:[]
-//       },
-//       created:function(){
-//         // 支持银行列表
-//       this.$http.post( window._appPath +'/isuser.do',{
-//           emulateJSON:true
-//       }).then(function(res){
-//           console.log(res)
-//         var data = res.data
-//         if(data.code==0){
-//           this.isuser  = data.data.isuser
-// //           0----注册成功
-// // 1----注册成功,需要填密码
-// // 2----注册后审批中 需要查询
-// // 3----未注册需要注册
-//           if(data.data.isuser == '0'){
-//             CommonUtil.redirectUrl('loan/index.html');
-//           }else if(data.data.isuser == '1'){
-//             CommonUtil.redirectUrl('pay/pay_password.html');
-
-//           }else if(data.data.isuser == '2'){
-//             CommonUtil.redirectUrl('loan/loan_step4.html');
-
-//           }else if(data.data.isuser == '3'){
-//             CommonUtil.redirectUrl('loan/loan_step1.html');
-//           }
-//         }else{
-//           $.alert(data.message)
-//         }
-//       }, function(res){
-//         $.alert('接口出错，稍后再试')
-//       })
-//       }
-//     })
-    })
-    </script>
+<script src="js/lib/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/lib/jquery.cookie/jquery.cookie.js"></script>
+<script src="js/lib/vue/vue.min.js"></script>
+<script src="js/lib/vue/vue-resource.min.js"></script>
+<script src="js/common/dictionary.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/common/main.js?v_1502855519725"></script>
+    <script>$(function(){window.s=null,window.n=60,new Vue({el:".main",data:{p1:"审批中",p2:"审核中请等待..."},methods:{submitFn:function(){CommonUtil.redirectUrl("loan/loan_step3.html")},resetFn:function(){CommonUtil.redirectUrl("loan/loan_step2_1.html")},getUserFn:function(){$.cookie("openId");var e=this;this.$http.post(window._appPath+"isuser.do",{openId:$.cookie("openId")},{emulateJSON:!0}).then(function(t){console.log(t.data,111);var n=t.data;if(0==n.code){if(n.data.isuser){var o=(new Date).getTime();if("0"==n.data.isuser)CommonUtil.redirectUrl("loan/index.html?v_"+o);else{if("2"==n.data.isuser)return clearTimeout(window.sss),window.sss=setTimeout(function(){e.getUserFn()},15e3),!1;"3"==n.data.isuser?CommonUtil.redirectUrl("loan/loan_step1.html?v_"+o):"7"==n.data.isuser?CommonUtil.redirectUrl("loan/loan_step2-id.html?v_"+o):"6"==n.data.isuser?CommonUtil.redirectUrl("loan/loan_loading.html?v_"+o):"4"==n.data.isuser&&CommonUtil.redirectUrl("loan/loan_step3.html?v_"+o)}e.p1="恭喜您信息审核成功！",e.p2="",$(".btn-reset").addClass("hide"),$(".btn-next").removeClass("hide")}}else 101==n.code?$.alert("系统内部异常"):$.alert(n.message)},function(){})}},created:function(){this.getUserFn()}})})</script>
 
 </html>

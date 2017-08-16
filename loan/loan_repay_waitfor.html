@@ -2,49 +2,39 @@
 <html>
 <head>
 	<title>还款中</title>
-	<!-- <base href="/test/"/> -->
-<base href="/bulid/"/>
+	
+<base href="/bulid/">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<!-- 尺寸的设置以及页面是否允许缩放 -->
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
-<!-- 删除苹果默认的工具栏和菜单栏 -->
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-<!-- 忽略页面中的数字识别为电话,忽略email识别 -->
-<meta name="format-detection" content="telephone=no, email=no"/>
-<!-- 启用360浏览器的极速模式(webkit) -->
-<meta name="renderer" content="webkit"/>
-<!-- 解决http https混合加载的安全性问题 -->
-<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<meta name="format-detection" content="telephone=no, email=no">
+
+<meta name="renderer" content="webkit">
+
+<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
 
 <link rel="shortcut icon" href="favicon.ico">
-<link rel="stylesheet" href="css/base.css"/>
-<link rel="stylesheet" href="css/style.css?v_1502854514867"/>
-<script>
-	// 项目根路径
-	// window._appPath = "http://210.14.129.41:8080/";
-	window._appPath = "/msxfInterface/";
-	// window._sitePath = "/test/"; // 测试
-	window._sitePath = "/bulid/"; // 测试
-</script>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/style.css?v_1502855519725">
+<script>window._appPath="/msxfInterface/",window._sitePath="/bulid/"</script>
 
 
 </head>
-<body style="background: #e4e4e4;">
+<body style="background:#e4e4e4">
 <header>
-	<!-- <a href="javascript:history.back(-1)" class="return_a">返回</a>还款 -->
+	
 <div class="top-header">
 		<a href="javascript:history.back(-1)" class="return_a"> </a>
 		还款中
-		<!-- <a href="javascript:;" class="top-zhifu">
-			支付
-		</a> -->
+		
 	</div>
 </header>
-<div class="repay-box ">
+<div class="repay-box">
     <i class="icon icon-waitfor">
     </i>
     <p class="info">
@@ -53,66 +43,17 @@
 </div>
 
 </body>
-<script>
-	// hrel='< %=hrel';
-</script>
-
-<!-- <scr ipt src='js/lib/zepto/zepto.min.js'></script> -->
-<!-- <sc ript src='js/lib/zepto.cookie/zepto.cookie.min.js'></script> -->
-<script src='js/lib/jquery/3.1.1/jquery.min.js'></script>
-<script src='js/lib/jquery.cookie/jquery.cookie.js'></script>
-<script src='js/lib/vue/vue.min.js'></script>
-<script src='js/lib/vue/vue-resource.min.js'></script>
-<script src='js/common/dictionary.js'></script>
-<script src='js/common/common.js'></script>
-<script src='js/common/main.js?v_1502854514867'></script>
-<!-- <scr ipt src="js/loan/step1.js?11"></script>  -->
-<script>
-	jQuery(function($){
-		new Vue({
-			el:'.main',
-			data:{
-				billAmt:''
-			},
-			methods:{
-				
-				getNumFn:function(){// 获取待还金额
-					this.$http.post(window._appPath +'auth/status.do',{
-		                openId:$.cookie('openId')
-		            },{
-		                emulateJSON:true
-		            }).then(function(res){
-		                console.log(res.data,111)
-		                var data = res.data
-		                // console.log(data.data.bill)
-		                if(data.code==0){
-		                    if (data.status ==5 ) {
-		                		CommonUtil.redirectUrl('loan/loan_repay_waitfor.html');
-		                	}
-		                	if (data.status ==1 ) {
-		                		CommonUtil.redirectUrl('loan/loan_repay_success.html');
-		                	}
-		                	if (data.status ==2 ) {
-		                		// CommonUtil.redirectUrl('loan/loan_repay_fail.html');
-		                	}
-                    		
-		                }
-		            },function(){})
-				},
+<script></script>
 
 
-			},
-			created:function(){
-				// 获取待还金额
-				var t = this;
-				setInterval(function(){
-					t.getNumFn();
-				},15000)
 
-				// 
+<script src="js/lib/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/lib/jquery.cookie/jquery.cookie.js"></script>
+<script src="js/lib/vue/vue.min.js"></script>
+<script src="js/lib/vue/vue-resource.min.js"></script>
+<script src="js/common/dictionary.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/common/main.js?v_1502855519725"></script>
 
-			}
-		})
-	})
-</script>
+<script>jQuery(function(t){new Vue({el:".main",data:{billAmt:""},methods:{getNumFn:function(){this.$http.post(window._appPath+"auth/status.do",{openId:t.cookie("openId")},{emulateJSON:!0}).then(function(t){console.log(t.data,111);var n=t.data;0==n.code&&(5==n.status&&CommonUtil.redirectUrl("loan/loan_repay_waitfor.html"),1==n.status&&CommonUtil.redirectUrl("loan/loan_repay_success.html"),n.status)},function(){})}},created:function(){var t=this;setInterval(function(){t.getNumFn()},15e3)}})})</script>
 </html>
