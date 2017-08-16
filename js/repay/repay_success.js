@@ -1,8 +1,1 @@
-$(function () {
-    $('.btn').on('click',  function(event) {
-        event.preventDefault();
-        /* Act on the event */
-        location.href = 'loan/index.html?v_'+ (new Date().getTime())
-        return false;
-    });
-});
+$(function(){$(".btn").on("click",function(n){return n.preventDefault(),location.href="loan/index.html?v_"+(new Date).getTime(),!1})});
