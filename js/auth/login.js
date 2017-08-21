@@ -1,1 +1,21 @@
-$(function(){$("#login").on("click",function(o){var n=$("#login-form");if(n.validator()){var i=n.serializeJSON();i.password=sha256_digest(i.password),$.postJSON("services/ayh/binding",i,function(o){CommonUtil.parseHttpResponse(o,function(){CommonUtil.replaceUrl(window.REDIRECT_URL||"loan")},function(o){$.error($.empty2def(o,"登录失败，请重新登录"))})})}})});
+$(function() {
+
+    // 登录
+    $('#login').on('click', function(e) {
+
+        var $form = $('#login-form');
+        if ($form.validator()) {
+            var data = $form.serializeJSON();
+            data.password = sha256_digest(data.password);
+            $.postJSON('services/ayh/binding', data, function(json) {
+                CommonUtil.parseHttpResponse(json, function() {
+                    CommonUtil.replaceUrl(window.REDIRECT_URL || 'loan');
+                }, function(errorMsg) {
+                    $.error($.empty2def(errorMsg, '登录失败，请重新登录'));
+                });
+            });
+        }
+
+    });
+
+});
