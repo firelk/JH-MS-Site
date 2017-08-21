@@ -20,7 +20,7 @@
 
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/style.css?v_1503287464420">
+<link rel="stylesheet" href="css/style.css?v_1503287784769">
 <script>window._appPath="/msxfInterface/",window._sitePath="/bulid/"</script>
 
 
@@ -53,7 +53,7 @@
 <script src="js/lib/vue/vue-resource.min.js"></script>
 <script src="js/common/dictionary.js"></script>
 <script src="js/common/common.js"></script>
-<script src="js/common/main.js?v_1503287464420"></script>
+<script src="js/common/main.js?v_1503287784769"></script>
 
 <script>jQuery(function(t){new Vue({el:".main",data:{billAmt:""},methods:{getNumFn:function(){this.$http.post(window._appPath+"auth/status.do",{openId:t.cookie("openId")},{emulateJSON:!0}).then(function(t){console.log(t.data,111);var n=t.data;0==n.code&&(5==n.status&&CommonUtil.redirectUrl("loan/loan_repay_waitfor.html"),1==n.status&&CommonUtil.redirectUrl("loan/loan_repay_success.html"),n.status)},function(){})}},created:function(){var t=this;setInterval(function(){t.getNumFn()},15e3)}})})</script>
 </html>

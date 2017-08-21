@@ -25,7 +25,8 @@ $(function () {
                     // window._appPath = 'http://192.168.28.248:9090/msxfInterface/'
 
                     _t.$http.post( window._appPath +'file/singleUploadStatusQuery.do', {
-                        openId:$.cookie('openId')
+                        openId:$.cookie('openId'),
+                        authCode: $.cookie('authCode')
                     },{
                         emulateJSON:true
                     }).then(function(res){
