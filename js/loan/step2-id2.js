@@ -78,10 +78,10 @@ $(function () {
             $('#zsta').height(imgh).css('opacity',1);
             $('#zstb').height(imgh).css('opacity',1);
             $('#zstc').height(imgh).css('opacity',1);
-            
+
             var _t = this;
             // 获取code
-             _t.$http.post( window._appPath +'file/authcode.do', {
+             _t.$http.post( window._appPath +'authcode.do', {
                     openId:$.cookie('openId')
                 },{
                     emulateJSON:true

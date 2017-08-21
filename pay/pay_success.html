@@ -20,7 +20,7 @@
 
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/style.css?v_1503286610690">
+<link rel="stylesheet" href="css/style.css?v_1503286805665">
 <script>window._appPath="/msxfInterface/",window._sitePath="/bulid/"</script>
 
 
@@ -45,7 +45,7 @@
     </p> 
 </div>
 
-<a href="loan/index.html?v_1503286610690" class="btn-next btn">确定</a>
+<a href="loan/index.html?v_1503286805665" class="btn-next btn">确定</a>
 </body>
 <script></script>
 
@@ -57,7 +57,7 @@
 <script src="js/lib/vue/vue-resource.min.js"></script>
 <script src="js/common/dictionary.js"></script>
 <script src="js/common/common.js"></script>
-<script src="js/common/main.js?v_1503286610690"></script>
+<script src="js/common/main.js?v_1503286805665"></script>
 
 <script>jQuery(function(t){new Vue({el:".main",data:{total:(+CommonUtil.getQueryString(location.href,"m")).toFixed(2),billAmt:""},methods:{getNumFn:function(){var i=this;this.$http.post(window._appPath+"getbills.do",{openId:t.cookie("openId")},{emulateJSON:!0}).then(function(t){var e=t.data;0==e.code&&(i.billAmt=""!=e.data.billhis.billAmt?(Number(e.data.billhis.billAmt)-Number(e.data.bill.paidAmt)).toFixed(2):0)},function(){})}},created:function(){}})})</script>
 </html>
