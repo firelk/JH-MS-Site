@@ -20,7 +20,7 @@
 
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/style.css?v_1502855519725">
+<link rel="stylesheet" href="css/style.css?v_1503285242472">
 <script>window._appPath="/msxfInterface/",window._sitePath="/bulid/"</script>
 
 
@@ -76,7 +76,7 @@
 <script src="js/lib/vue/vue-resource.min.js"></script>
 <script src="js/common/dictionary.js"></script>
 <script src="js/common/common.js"></script>
-<script src="js/common/main.js?v_1502855519725"></script>
+<script src="js/common/main.js?v_1503285242472"></script>
 
 <script>jQuery(function(t){new Vue({el:".main",data:{billAmt:""},methods:{yzmFn:function(){this.$http.post(window._appPath+"repay/sms.do",{openId:t.cookie("openId"),amount:t(".repay_number").val()},{emulateJSON:!0}).then(function(e){console.log(e.data,111);var a=e.data;0==a.code?(t.alert("短信已发送！"),t(".btn").removeAttr("disabled")):t.alert(a.message)},function(){})},clickFn:function(e){t("#next").attr("disabled","disabled"),setTimeout(function(){t("#next").removeAttr("disabled")},1e4),this.$http.post(window._appPath+"repay.do",{openId:t.cookie("openId"),amount:t(".repay_number").val(),smsCode:t(".form-yzm").val()},{emulateJSON:!0}).then(function(e){console.log(e,111);var a=e.data;0==a.code?(0==a.data.status&&CommonUtil.redirectUrl("loan/loan_repay_waitfor.html"),1==a.data.status&&CommonUtil.redirectUrl("loan/loan_repay_success.html"),2==a.data.status&&CommonUtil.redirectUrl("loan/loan_repay_fail.html")):t.alert(a.message)},function(){})},getNumFn:function(){this.$http.post(window._appPath+"getbills.do",{openId:t.cookie("openId")},{emulateJSON:!0}).then(function(t){console.log(t.data,111);var e=t.data;0==e.code&&(this.billAmt=""!=e.data.billhis.billAmt?(Number(e.data.billhis.billAmt)-Number(e.data.bill.paidAmt)).toFixed(2):0)},function(){})}},created:function(){this.getNumFn()}})})</script>
 </html>
