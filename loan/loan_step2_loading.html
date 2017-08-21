@@ -21,7 +21,7 @@
 
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/style.css?v_1503285242472">
+<link rel="stylesheet" href="css/style.css?v_1503285985754">
 <script>window._appPath="/msxfInterface/",window._sitePath="/bulid/"</script>
 
 </head>
@@ -55,7 +55,7 @@
 <script src="js/lib/vue/vue-resource.min.js"></script>
 <script src="js/common/dictionary.js"></script>
 <script src="js/common/common.js"></script>
-<script src="js/common/main.js?v_1503285242472"></script>
+<script src="js/common/main.js?v_1503285985754"></script>
     <script>$(function(){new Vue({el:".main",data:{p1:"审批中",p2:"审核中请等待..."},methods:{submitFn:function(){CommonUtil.redirectUrl("loan/loan_success_contract.html")},resetFn:function(){$.cookie("openId");var t=this;this.$http.post(window._appPath+"apply/status.do",{openId:$.cookie("openId")},{emulateJSON:!0}).then(function(e){console.log(e.data,111);var n=e.data;0==n.code?(t.p1="恭喜您信息审核成功！",t.p2="",$(".btn-reset").addClass("hide"),$(".btn-next").removeClass("hide")):$.alert(n.message)},function(){})}},created:function(){this.resetFn()}})})</script>
 
 </html>
