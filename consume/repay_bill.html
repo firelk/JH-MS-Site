@@ -21,7 +21,7 @@
 
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/style.css?v_1503285242472">
+<link rel="stylesheet" href="css/style.css?v_1503285985754">
 <script>window._appPath="/msxfInterface/",window._sitePath="/bulid/"</script>
 
     <link rel="stylesheet" href="css/scale_slip.css">
@@ -59,7 +59,7 @@
 <script src="js/lib/vue/vue-resource.min.js"></script>
 <script src="js/common/dictionary.js"></script>
 <script src="js/common/common.js"></script>
-<script src="js/common/main.js?v_1503285242472"></script>
+<script src="js/common/main.js?v_1503285985754"></script>
  <script>window.onload=function(){new Vue({el:".main",data:{list:[]},methods:{},created:function(){this.$http.post(window._appPath+"getsaleinfo.do",{openId:$.cookie("openId"),page:0,pageSize:20},{emulateJSON:!0}).then(function(t){console.log(t.data,111);var o=t.data;if(console.log(o.data),0==o.code){for(var a=o.data.salelist,e=0;e<a.length;e++)a[e].jysj=$.fn.dateFormatFn(a[e].jysj,"yyyy-MM-dd hh:mm:ss");this.list=a}},function(){})}})}</script>
   
 
