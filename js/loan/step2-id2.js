@@ -93,7 +93,7 @@ $(function () {
                     if(data.code==0){
                        
                         $.cookie('applyNo', data.data.applyNo, { path: '/' })
-                        $.cookie('authcode', data.data.authcode, { path: '/' })
+                        $.cookie('authCode', data.data.authCode, { path: '/' })
                         
                     }else{
                         alert('系统错误，请刷新页面！');

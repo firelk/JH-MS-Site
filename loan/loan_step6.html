@@ -21,7 +21,7 @@
 
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/style.css?v_1503286805665">
+<link rel="stylesheet" href="css/style.css?v_1503286933102">
 <script>window._appPath="/msxfInterface/",window._sitePath="/bulid/"</script>
 
 </head>
@@ -55,7 +55,7 @@
 <script src="js/lib/vue/vue-resource.min.js"></script>
 <script src="js/common/dictionary.js"></script>
 <script src="js/common/common.js"></script>
-<script src="js/common/main.js?v_1503286805665"></script>
-    <script>$(function(){new Vue({el:".main",data:{p1:"合同签署中",p2:"合同签署中请等待...",p5:""},methods:{submitFn:function(){$("#contractCheckbox").prop("checked")?CommonUtil.redirectUrl("loan/loan_password.html"):$.alert("请阅读并同意协议！")},resigFn:function(){CommonUtil.redirectUrl("loan/loan_step1.html")},resetFn:function(){$.cookie("openId");var e=this;this.$http.post(window._appPath+"accountInfo.do",{openId:$.cookie("openId")},{emulateJSON:!0}).then(function(o){console.log(o.data,111);var t=o.data;0==t.code?t.data.isValid?(e.p1="恭喜您合同签署成功！",e.p2=t.data.totalAmount.toFixed(2)+"元",e.p5='<input type="checkbox" name="" id="contractCheckbox" checked><label for="">我已经阅读并同意《<a class="color-blue" href="./loan/loan_step5.html?v_1503286805665">个人循环信用额度贷款合同</a>》</label>',$(".btn-next").removeClass("hide")):($(".icon-success").removeClass("icon-success").addClass("icon-applying"),e.p1="账户无效",e.p2="",$(".btn-resig").removeClass("hide")):$.alert(t.message)},function(){})}},created:function(){this.resetFn()}})})</script>
+<script src="js/common/main.js?v_1503286933102"></script>
+    <script>$(function(){new Vue({el:".main",data:{p1:"合同签署中",p2:"合同签署中请等待...",p5:""},methods:{submitFn:function(){$("#contractCheckbox").prop("checked")?CommonUtil.redirectUrl("loan/loan_password.html"):$.alert("请阅读并同意协议！")},resigFn:function(){CommonUtil.redirectUrl("loan/loan_step1.html")},resetFn:function(){$.cookie("openId");var e=this;this.$http.post(window._appPath+"accountInfo.do",{openId:$.cookie("openId")},{emulateJSON:!0}).then(function(o){console.log(o.data,111);var t=o.data;0==t.code?t.data.isValid?(e.p1="恭喜您合同签署成功！",e.p2=t.data.totalAmount.toFixed(2)+"元",e.p5='<input type="checkbox" name="" id="contractCheckbox" checked><label for="">我已经阅读并同意《<a class="color-blue" href="./loan/loan_step5.html?v_1503286933102">个人循环信用额度贷款合同</a>》</label>',$(".btn-next").removeClass("hide")):($(".icon-success").removeClass("icon-success").addClass("icon-applying"),e.p1="账户无效",e.p2="",$(".btn-resig").removeClass("hide")):$.alert(t.message)},function(){})}},created:function(){this.resetFn()}})})</script>
 
 </html>
