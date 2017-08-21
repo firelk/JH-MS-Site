@@ -198,7 +198,7 @@ function postImgIphone(base64, imgId, inputId) {
     xhr.upload.addEventListener("progress", function(evt) {
         // pic.attr('src', "/view/images/lodding.gif");
     }, false);
-    xhr.open("POST", uri + '?openId=' + $.cookie('openId') +'applyNo=' + $.cookie('applyNo') +'&photoType='+ photoType  , true);
+    xhr.open("POST", uri + '?openId=' + $.cookie('openId') +'&applyNo=' + $.cookie('applyNo') +'&photoType='+ photoType  , true);
     xhr.send(fd);
     xhr.onreadystatechange = function(i) {
         clearTimeout(window['setTimeFlag'+ imgId]);
