@@ -21,7 +21,7 @@
 
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/style.css?v_1503366545278">
+<link rel="stylesheet" href="css/style.css?v_1503451519204">
 <script>window._appPath="/msxfInterface/",window._sitePath="/bulid/"</script>
 
 </head>
@@ -52,7 +52,7 @@
 <script src="js/lib/vue/vue-resource.min.js"></script>
 <script src="js/common/dictionary.js"></script>
 <script src="js/common/common.js"></script>
-<script src="js/common/main.js?v_1503366545278"></script>
+<script src="js/common/main.js?v_1503451519204"></script>
     <script>$(function(){window.s=null,window.n=60,new Vue({el:".main",data:{p1:"审批中",p2:"审核中请等待..."},methods:{submitFn:function(){CommonUtil.redirectUrl("loan/loan_step3.html")},resetFn:function(){CommonUtil.redirectUrl("loan/loan_step2_1.html")},getUserFn:function(){$.cookie("openId");var e=this;this.$http.post(window._appPath+"isuser.do",{openId:$.cookie("openId")},{emulateJSON:!0}).then(function(t){console.log(t.data,111);var n=t.data;if(0==n.code){if(n.data.isuser){var o=(new Date).getTime();if("0"==n.data.isuser)CommonUtil.redirectUrl("loan/index.html?v_"+o);else{if("2"==n.data.isuser)return clearTimeout(window.sss),window.sss=setTimeout(function(){e.getUserFn()},15e3),!1;"3"==n.data.isuser?CommonUtil.redirectUrl("loan/loan_step1.html?v_"+o):"7"==n.data.isuser?CommonUtil.redirectUrl("loan/loan_step2-id.html?v_"+o):"6"==n.data.isuser?CommonUtil.redirectUrl("loan/loan_loading.html?v_"+o):"4"==n.data.isuser&&CommonUtil.redirectUrl("loan/loan_step3.html?v_"+o)}e.p1="恭喜您信息审核成功！",e.p2="",$(".btn-reset").addClass("hide"),$(".btn-next").removeClass("hide")}}else 101==n.code?$.alert("系统内部异常"):$.alert(n.message)},function(){})}},created:function(){this.getUserFn()}})})</script>
 
 </html>

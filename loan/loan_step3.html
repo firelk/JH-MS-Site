@@ -20,7 +20,7 @@
 
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/style.css?v_1503366545278">
+<link rel="stylesheet" href="css/style.css?v_1503451519204">
 <script>window._appPath="/msxfInterface/",window._sitePath="/bulid/"</script>
 
 </head>
@@ -52,7 +52,7 @@
 <script src="js/lib/vue/vue-resource.min.js"></script>
 <script src="js/common/dictionary.js"></script>
 <script src="js/common/common.js"></script>
-<script src="js/common/main.js?v_1503366545278"></script>
+<script src="js/common/main.js?v_1503451519204"></script>
 
 
 <script>$(function(){new Vue({el:".main",data:{iframeH:500},methods:{scrollFn:function(t){var e=this;$(".iframe").on("scroll",function(t){var n=$(this).height();e.iframeH-$(this).scrollTop()-n<=0&&$(".btn-view").removeAttr("disabled")})},clickFn:function(){this.$http.post(window._appPath+"contract/confirm.do",{openId:$.cookie("openId")},{emulateJSON:!0}).then(function(t){var e=t.data;0==e.code?CommonUtil.redirectUrl("loan/loan_step6.html"):$.alert(e.message)})},getFn:function(){var t=this;this.$http.post(window._appPath+"contract/credit/auth.do",{openId:$.cookie("openId")},{emulateJSON:!0}).then(function(e){var n=e.data;if(console.log(n,"contract/html.do"),0==n.code){$("#iframeContract").contents().find("body").html(n.data.htmlContract);var o=$("#iframeContract").contents().find("html").height();t.iframeH=o,$("#iframeContract").height(o),this.scrollFn()}else $.alert(n.message)})}},created:function(){this.getFn(),$(".iframe").height($(window).height()-234)}})})</script>
